@@ -747,6 +747,7 @@ GameObject:
   - 224: {fileID: 105888979}
   - 222: {fileID: 105888981}
   - 114: {fileID: 105888980}
+  - 114: {fileID: 105888982}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -792,7 +793,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 352bc3e49a75447ada3509c828675b24, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 1
@@ -804,13 +805,27 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Share
+  m_Text: "\u0634\u0627\u0631\u0643"
 --- !u!222 &105888981
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 105888978}
+--- !u!114 &105888982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 105888978}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b90e71a99c14dd89ebdc930f9afffb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: "\u0634\u0627\u0631\u0643"
+  tashkeel: 1
+  hinduNumbers: 1
 --- !u!1 &108991397
 GameObject:
   m_ObjectHideFlags: 0
@@ -4201,6 +4216,7 @@ GameObject:
   - 224: {fileID: 863300998}
   - 222: {fileID: 863301000}
   - 114: {fileID: 863300999}
+  - 114: {fileID: 863301001}
   m_Layer: 5
   m_Name: ScoreText
   m_TagString: Untagged
@@ -4246,7 +4262,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 352bc3e49a75447ada3509c828675b24, type: 3}
     m_FontSize: 80
     m_FontStyle: 0
     m_BestFit: 1
@@ -4258,13 +4274,27 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Score
+  m_Text: "\u0627\u0644\u0646\u062A\u064A\u062D\u0629"
 --- !u!222 &863301000
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 863300997}
+--- !u!114 &863301001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 863300997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b90e71a99c14dd89ebdc930f9afffb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: "\u0627\u0644\u0646\u062A\u064A\u062D\u0629"
+  tashkeel: 1
+  hinduNumbers: 1
 --- !u!1 &866954807
 GameObject:
   m_ObjectHideFlags: 0
@@ -6404,6 +6434,7 @@ GameObject:
   - 224: {fileID: 1418894609}
   - 222: {fileID: 1418894611}
   - 114: {fileID: 1418894610}
+  - 114: {fileID: 1418894612}
   m_Layer: 5
   m_Name: BestScoreText
   m_TagString: Untagged
@@ -6449,7 +6480,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 352bc3e49a75447ada3509c828675b24, type: 3}
     m_FontSize: 80
     m_FontStyle: 0
     m_BestFit: 1
@@ -6461,13 +6492,27 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Best
+  m_Text: "\u0627\u0641\u0636\u0644 \u0646\u062A\u064A\u062C\u0629"
 --- !u!222 &1418894611
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1418894608}
+--- !u!114 &1418894612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1418894608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b90e71a99c14dd89ebdc930f9afffb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: "\u0627\u0641\u0636\u0644 \u0646\u062A\u064A\u062C\u0629"
+  tashkeel: 1
+  hinduNumbers: 1
 --- !u!1 &1419761256
 GameObject:
   m_ObjectHideFlags: 0
@@ -6589,6 +6634,7 @@ GameObject:
   - 224: {fileID: 1420495505}
   - 222: {fileID: 1420495507}
   - 114: {fileID: 1420495506}
+  - 114: {fileID: 1420495508}
   m_Layer: 5
   m_Name: GameOverText
   m_TagString: Untagged
@@ -6634,7 +6680,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 352bc3e49a75447ada3509c828675b24, type: 3}
     m_FontSize: 80
     m_FontStyle: 0
     m_BestFit: 1
@@ -6646,13 +6692,27 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Game Over
+  m_Text: "\u0627\u0646\u062A\u0647\u062A \u0627\u0644\u0644\u0639\u0628\u0629"
 --- !u!222 &1420495507
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1420495504}
+--- !u!114 &1420495508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1420495504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b90e71a99c14dd89ebdc930f9afffb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: "\u0627\u0646\u062A\u0647\u062A \u0627\u0644\u0644\u0639\u0628\u0629"
+  tashkeel: 1
+  hinduNumbers: 1
 --- !u!1 &1448079078
 GameObject:
   m_ObjectHideFlags: 0
@@ -8326,7 +8386,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 352bc3e49a75447ada3509c828675b24, type: 3}
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 1
