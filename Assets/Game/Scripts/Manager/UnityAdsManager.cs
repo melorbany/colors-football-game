@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.Advertisements;
+//using ChartboostSDK;
 
 public class UnityAdsManager : MonoBehaviour {
     private int i = 0;
@@ -26,11 +27,8 @@ public class UnityAdsManager : MonoBehaviour {
     public void ShowAd()
     {
         //import unity ads
-
-        //if (Advertisement.IsReady())
-        //{
-        //    Advertisement.Show();
-        //}
+		//Chartboost.showInterstitial(CBLocation.HomeScreen);
+      
     }
     //use this function for showing reward ads
     public void ShowRewardedAd()
