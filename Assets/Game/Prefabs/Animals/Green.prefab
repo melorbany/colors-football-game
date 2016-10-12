@@ -107,7 +107,7 @@ MonoBehaviour:
   minUpForce: 730
   applyForce: 0
   img:
-  - {fileID: 21300018, guid: c34365fbcf92b8f45a916780050d707a, type: 3}
+  - {fileID: 21300010, guid: c34365fbcf92b8f45a916780050d707a, type: 3}
   - {fileID: 21300010, guid: c34365fbcf92b8f45a916780050d707a, type: 3}
   - {fileID: 21300018, guid: c34365fbcf92b8f45a916780050d707a, type: 3}
   - {fileID: 21300002, guid: c34365fbcf92b8f45a916780050d707a, type: 3}
