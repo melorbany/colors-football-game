@@ -44,12 +44,14 @@ public class MainMenu : MonoBehaviour
 
         if (GameManager.instance.isMusicOn)
         {
+			AudioListener.volume = 1;
             //MusicController.instance.PlayBgMusic();
             soundBtn.transform.GetChild(0).GetComponent<Image>().sprite = soundBtnSprites[0];
 
         }
         else
         {
+			AudioListener.volume = 0;
             //MusicController.instance.StopBgMusic();
             soundBtn.transform.GetChild(0).GetComponent<Image>().sprite = soundBtnSprites[1];
 
@@ -89,17 +91,24 @@ public class MainMenu : MonoBehaviour
 
     void SoundBtn()
     {
-        sound.Play();
 
-        if (GameManager.instance.isMusicOn)
+//		PlayBtn();
+//        sound.Play();
+
+
+      if (GameManager.instance.isMusicOn)
         {
+			AudioListener.volume = 0;
             soundBtn.transform.GetChild(0).GetComponent<Image>().sprite = soundBtnSprites[1];
             //MusicController.instance.StopBgMusic();
             GameManager.instance.isMusicOn = false;
             GameManager.instance.Save();
+			sound.Play();
+
         }
         else
         {
+			AudioListener.volume = 1;
             soundBtn.transform.GetChild(0).GetComponent<Image>().sprite = soundBtnSprites[0];
             //MusicController.instance.PlayBgMusic();
             GameManager.instance.isMusicOn = true;

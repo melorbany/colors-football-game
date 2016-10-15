@@ -10,7 +10,8 @@ public class ChartboostExample: MonoBehaviour
 	public GameObject inPlayIcon;
 	public GameObject inPlayText;
 	public Texture2D logo;
-	
+
+	private int i = 0;
 	private CBInPlay inPlayAd;
 
 	public Vector2 scrollPosition = Vector2.zero;
@@ -46,6 +47,8 @@ public class ChartboostExample: MonoBehaviour
 
 	void Start() {
 		delegateHistory = new List<string>();
+
+		i = 0;
 		#if UNITY_IPHONE
 		Chartboost.setShouldPauseClickForConfirmation(ageGate);
 		#endif
@@ -112,19 +115,63 @@ public class ChartboostExample: MonoBehaviour
 	private Vector2 latestPanel;        // scrollpanel
 
  	void Update() {
-		UpdateScrolling();
+//		UpdateScrolling();
+//
+//		frameCount++;
+//		if( frameCount > 30 )
+//		{
+//			// update these periodically and not every frame
+//			hasInterstitial = Chartboost.hasInterstitial(CBLocation.Default);
+//			hasMoreApps = Chartboost.hasMoreApps(CBLocation.Default);
+//			hasRewardedVideo = Chartboost.hasRewardedVideo(CBLocation.Default);
+//			hasInPlay = Chartboost.hasInPlay(CBLocation.Default);
+//
+//			frameCount = 0;
+//		}
 
-		frameCount++;
-		if( frameCount > 30 )
+
+		if (GameManager.instance.isGameOver == true && GameManager.instance.canShowAds)
 		{
-			// update these periodically and not every frame
-			hasInterstitial = Chartboost.hasInterstitial(CBLocation.Default);
-			hasMoreApps = Chartboost.hasMoreApps(CBLocation.Default);
-			hasRewardedVideo = Chartboost.hasRewardedVideo(CBLocation.Default);
-			hasInPlay = Chartboost.hasInPlay(CBLocation.Default);
-
-			frameCount = 0;
+			if (i == 0)
+			{
+				ShowAd();
+				i++;
+			}
 		}
+
+		/*Chartboost.cacheInterstitial (CBLocation.Default);
+		if (Chartboost.hasInterstitial (CBLocation.Default)) {
+			Chartboost.showInterstitial (CBLocation.Default);
+		}*/
+
+	}
+
+
+	public void ShowAd()
+	{
+		//import unity ads
+		//Chartboost.showInterstitial(CBLocation.HomeScreen);
+
+		Chartboost.cacheInterstitial (CBLocation.Default);
+		if (Chartboost.hasInterstitial (CBLocation.Default)) {
+			Chartboost.showInterstitial (CBLocation.Default);
+		}
+
+	}
+	//use this function for showing reward ads
+	public void ShowRewardedAd()
+	{
+		//uncomment after importing unity ads
+		//if (Advertisement.IsReady("rewardedVideo"))
+		//{
+		//    var options = new ShowOptions { resultCallback = HandleShowResult };
+		//    Advertisement.Show("rewardedVideo", options);
+		//}
+		//else
+		//{
+		//    Debug.Log("Ads not ready");
+
+		//}
 	}
 
 	void UpdateScrolling()
@@ -163,52 +210,52 @@ public class ChartboostExample: MonoBehaviour
 		}
 	}
 
-	void OnGUI() {
-/*
-#if UNITY_ANDROID
-		// Disable user input for GUI when impressions are visible
-		// This is only necessary on Android if we have disabled impression activities
-		//   by having called CBBinding.init(ID, SIG, false), as that allows touch
-		//   events to leak through Chartboost impressions
-		GUI.enabled = !Chartboost.isImpressionVisible();
-#endif
-*/
-	    //get the screen's width
-	    float sWidth = Screen.width;
-	    float sHeight = Screen.height;
-	    //calculate the rescale ratio
-	    float guiRatioX = sWidth/240.0f;
-	    float guiRatioY = sHeight/210.0f;
-
-	    float myScale = Mathf.Min(6.0f, Mathf.Min(guiRatioX, guiRatioY));
-	    if(scale != myScale) {
-	    	scale = myScale;
-			guiScale = new Vector3(scale,scale,1);
-	    }
-		GUI.matrix = Matrix4x4.Scale(guiScale);
-
-    	ELEMENT_WIDTH = (int)(sWidth/scale)-30;
-    	float height = REQUIRED_HEIGHT;
-    	if(inPlayAd != null) {
-    		// add space for the icon
-    		height += 60;
-    	}
-		scrollRect = new Rect(0, BANNER_HEIGHT, ELEMENT_WIDTH+30, sHeight/scale-BANNER_HEIGHT);
-		scrollArea = new Rect(-10, BANNER_HEIGHT, ELEMENT_WIDTH, height);
-
-
-		LayoutHeader();
-		if( activeAgeGate )
-		{
-			GUI.ModalWindow(1, new Rect(0, 0, Screen.width, Screen.height), LayoutAgeGate, "Age Gate");
-			return;
-		}
-		scrollPosition = GUI.BeginScrollView(scrollRect, scrollPosition, scrollArea);
-
-		LayoutButtons();
-		LayoutToggles();
-		GUI.EndScrollView();
-	}
+//	void OnGUI() {
+///*
+//#if UNITY_ANDROID
+//		// Disable user input for GUI when impressions are visible
+//		// This is only necessary on Android if we have disabled impression activities
+//		//   by having called CBBinding.init(ID, SIG, false), as that allows touch
+//		//   events to leak through Chartboost impressions
+//		GUI.enabled = !Chartboost.isImpressionVisible();
+//#endif
+//*/
+//	    //get the screen's width
+//	    float sWidth = Screen.width;
+//	    float sHeight = Screen.height;
+//	    //calculate the rescale ratio
+//	    float guiRatioX = sWidth/240.0f;
+//	    float guiRatioY = sHeight/210.0f;
+//
+//	    float myScale = Mathf.Min(6.0f, Mathf.Min(guiRatioX, guiRatioY));
+//	    if(scale != myScale) {
+//	    	scale = myScale;
+//			guiScale = new Vector3(scale,scale,1);
+//	    }
+//		GUI.matrix = Matrix4x4.Scale(guiScale);
+//
+//    	ELEMENT_WIDTH = (int)(sWidth/scale)-30;
+//    	float height = REQUIRED_HEIGHT;
+//    	if(inPlayAd != null) {
+//    		// add space for the icon
+//    		height += 60;
+//    	}
+//		scrollRect = new Rect(0, BANNER_HEIGHT, ELEMENT_WIDTH+30, sHeight/scale-BANNER_HEIGHT);
+//		scrollArea = new Rect(-10, BANNER_HEIGHT, ELEMENT_WIDTH, height);
+//
+//
+//		LayoutHeader();
+//		if( activeAgeGate )
+//		{
+//			GUI.ModalWindow(1, new Rect(0, 0, Screen.width, Screen.height), LayoutAgeGate, "Age Gate");
+//			return;
+//		}
+//		scrollPosition = GUI.BeginScrollView(scrollRect, scrollPosition, scrollArea);
+//
+//		LayoutButtons();
+//		LayoutToggles();
+//		GUI.EndScrollView();
+//	}
 
 	void LayoutHeader()
 	{

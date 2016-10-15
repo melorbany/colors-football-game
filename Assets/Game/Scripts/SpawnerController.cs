@@ -12,6 +12,8 @@ public class SpawnerController : MonoBehaviour {
     public AudioClip[] swingClips;     //audio clips are assigned here
     public float timeReduce;              //amount by which time is reduce
     public float timeDecreaseMileStone;   //mile stone after which time is reduce
+	public float timeForRandomElement;   //mile stone after which time is reduce
+
     private float timeMileStoneCount;     //total mile stones achieved
 
     public float minTime;                 //time limit between each spawn
@@ -54,21 +56,21 @@ public class SpawnerController : MonoBehaviour {
     {
         float timeVal = time;
 
-        if (GameManager.instance.currentScore <= 10)
+		if (GameManager.instance.currentScore <= 10)
         {
             timeVal = time;
         }
-        else if (GameManager.instance.currentScore > 10 /*&& GameManager.instance.currentScore <= 15*/)
+		else if (GameManager.instance.currentScore > 10 /*&& GameManager.instance.currentScore <= 15*/)
         {
-            int i = Random.Range(0, 3);
+            int i = Random.Range(0, 4);
 
-            if (i >= 0 && i < 2)
+            if (i >= 0 && i < 3)
             {
                 timeVal = time;
             }
             else
             {
-                timeVal = 0.8f;
+				timeVal = timeForRandomElement;
             }
         }
 
@@ -154,7 +156,7 @@ public class SpawnerController : MonoBehaviour {
         if (GameManager.instance.currentScore > timeMileStoneCount)
         {
             timeMileStoneCount += timeDecreaseMileStone;
-            timeDecreaseMileStone += 5f; //well this set the new mile stone which the score
+            timeDecreaseMileStone += 10f; //well this set the new mile stone which the score
             time -= timeReduce;
 
             if (time < minTime)

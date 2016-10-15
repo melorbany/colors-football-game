@@ -10,8 +10,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 0
-  companyName: MadFireOn
-  productName: 4 Animal
+  companyName: Tatbiqat
+  productName: "\u062D\u0631\u064A\u0641 \u0627\u0644\u0643\u0631\u0629"
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenStyle: 0
@@ -120,7 +120,7 @@ PlayerSettings:
     serializedVersion: 2
     m_Bits: 238
   iPhoneSdkVersion: 988
-  iPhoneTargetOSVersion: 22
+  iPhoneTargetOSVersion: 24
   tvOSSdkVersion: 0
   tvOSTargetOSVersion: 900
   uIPrerenderedIcon: 0
@@ -129,25 +129,16 @@ PlayerSettings:
   uIStatusBarHidden: 1
   uIExitOnSuspend: 0
   uIStatusBarStyle: 0
-  iPhoneSplashScreen: {fileID: 2800000, guid: 2c70caede0d5c47aa8661f5ead1948b9, type: 3}
-  iPhoneHighResSplashScreen: {fileID: 2800000, guid: 2c70caede0d5c47aa8661f5ead1948b9,
-    type: 3}
-  iPhoneTallHighResSplashScreen: {fileID: 2800000, guid: 2c70caede0d5c47aa8661f5ead1948b9,
-    type: 3}
-  iPhone47inSplashScreen: {fileID: 2800000, guid: 2c70caede0d5c47aa8661f5ead1948b9,
-    type: 3}
-  iPhone55inPortraitSplashScreen: {fileID: 2800000, guid: 2c70caede0d5c47aa8661f5ead1948b9,
-    type: 3}
-  iPhone55inLandscapeSplashScreen: {fileID: 2800000, guid: 2c70caede0d5c47aa8661f5ead1948b9,
-    type: 3}
-  iPadPortraitSplashScreen: {fileID: 2800000, guid: 2c70caede0d5c47aa8661f5ead1948b9,
-    type: 3}
-  iPadHighResPortraitSplashScreen: {fileID: 2800000, guid: 2c70caede0d5c47aa8661f5ead1948b9,
-    type: 3}
-  iPadLandscapeSplashScreen: {fileID: 2800000, guid: 2c70caede0d5c47aa8661f5ead1948b9,
-    type: 3}
-  iPadHighResLandscapeSplashScreen: {fileID: 2800000, guid: 2c70caede0d5c47aa8661f5ead1948b9,
-    type: 3}
+  iPhoneSplashScreen: {fileID: 0}
+  iPhoneHighResSplashScreen: {fileID: 0}
+  iPhoneTallHighResSplashScreen: {fileID: 0}
+  iPhone47inSplashScreen: {fileID: 0}
+  iPhone55inPortraitSplashScreen: {fileID: 0}
+  iPhone55inLandscapeSplashScreen: {fileID: 0}
+  iPadPortraitSplashScreen: {fileID: 0}
+  iPadHighResPortraitSplashScreen: {fileID: 0}
+  iPadLandscapeSplashScreen: {fileID: 0}
+  iPadHighResLandscapeSplashScreen: {fileID: 0}
   appleTVSplashScreen: {fileID: 0}
   tvOSSmallIconLayers: []
   tvOSLargeIconLayers: []
