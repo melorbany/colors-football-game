@@ -3,16 +3,16 @@ using System.Collections;
 
 public class Highscores : MonoBehaviour {
 
-	const string privateCode = "4fcZoIDMO02emPvesFklzgGn_thjIN8EKfi4LNMXMcdw";
-	const string publicCode = "548c04c96e51b60c740bcdec";
+	const string privateCode = "xwuy6MA6J0mbC0rUNCv_6wkRAQBRsmCEqDqIroV6MV8g";
+	const string publicCode = "5805a5788af60306c09fb413";
 	const string webURL = "http://dreamlo.com/lb/";
 
-	DisplayHighscores highscoreDisplay;
+	PlayerScoreList playerScoreList;
 	public Highscore[] highscoresList;
 	static Highscores instance;
 	
 	void Awake() {
-		highscoreDisplay = GetComponent<DisplayHighscores> ();
+		playerScoreList = GetComponent<PlayerScoreList> ();
 		instance = this;
 	}
 
@@ -43,7 +43,7 @@ public class Highscores : MonoBehaviour {
 		
 		if (string.IsNullOrEmpty (www.error)) {
 			FormatHighscores (www.text);
-			highscoreDisplay.OnHighscoresDownloaded(highscoresList);
+			playerScoreList.OnHighscoresDownloaded(highscoresList);
 		}
 		else {
 			print ("Error Downloading: " + www.error);
@@ -57,20 +57,35 @@ public class Highscores : MonoBehaviour {
 		for (int i = 0; i <entries.Length; i ++) {
 			string[] entryInfo = entries[i].Split(new char[] {'|'});
 			string username = entryInfo[0];
+
+			string[] playerInfo = username.Split(new string[] {"PDMWY"},System.StringSplitOptions.None);
+		
+			string name ="", team ="";
+			if (playerInfo.Length > 1) {
+				name = playerInfo [0];
+				team = playerInfo [1];
+			} else {
+				name = username;
+			}
+
+		
 			int score = int.Parse(entryInfo[1]);
-			highscoresList[i] = new Highscore(username,score);
-			print (highscoresList[i].username + ": " + highscoresList[i].score);
+
+			highscoresList[i] = new Highscore(name,team,score);
+			print (highscoresList[i].name + ": " + highscoresList[i].team + " -> " + highscoresList[i].score);
 		}
 	}
 
 }
 
 public struct Highscore {
-	public string username;
+	public string name;
+	public string team; 
 	public int score;
 
-	public Highscore(string _username, int _score) {
-		username = _username;
+	public Highscore(string _name,string _team, int _score) {
+		name = _name;
+		team = _team;
 		score = _score;
 	}
 

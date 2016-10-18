@@ -1415,6 +1415,46 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 589867924}
+--- !u!1 &609603919
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 609603921}
+  - 114: {fileID: 609603920}
+  m_Layer: 0
+  m_Name: Display
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &609603920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 609603919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b5a560b5949c416d965dd0c56450c37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &609603921
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 609603919}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.2512561, y: -1.0828662, z: 90}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
 --- !u!1 &618380484
 GameObject:
   m_ObjectHideFlags: 0
@@ -2020,11 +2060,11 @@ GameObject:
   - 4: {fileID: 888292463}
   - 114: {fileID: 888292462}
   m_Layer: 0
-  m_Name: ScoreManager
+  m_Name: HighScores
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!114 &888292462
 MonoBehaviour:
@@ -2034,7 +2074,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 888292461}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77d106c58d9a7465ba9bf8fb31e6387c, type: 3}
+  m_Script: {fileID: 11500000, guid: 5a33987e2fda9472189681f58af61369, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &888292463
