@@ -11,7 +11,7 @@ public class InGameGui : MonoBehaviour {
     public Color[] medalCols;
     public Image medal;
     public Button homeBtn, leaderBtn, retryBtn, shareBtn;
-    public string mainMenu;
+	public string mainMenu,leaderScene;
     int i = 0;
 	// Use this for initialization
 	void Start ()
@@ -73,7 +73,7 @@ public class InGameGui : MonoBehaviour {
 
     void LeaderboardBtn()
     {
-        sound.Play();
+		SceneManager.LoadScene(leaderScene);
     }
 
     void ShareBtn()

@@ -9,3 +9,5 @@ EditorBuildSettings:
     path: Assets/Game/Scene/MainMenu.unity
   - enabled: 1
     path: Assets/Game/Scene/GameScene.unity
+  - enabled: 1
+    path: Assets/Game/Scene/HighScores.unity
