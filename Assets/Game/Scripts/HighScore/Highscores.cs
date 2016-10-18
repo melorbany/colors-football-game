@@ -14,6 +14,8 @@ public class Highscores : MonoBehaviour {
 	void Awake() {
 		playerScoreList = GetComponent<PlayerScoreList> ();
 		instance = this;
+
+		//Debug.Log (playerScoreList);
 	}
 
 	public static void AddNewHighscore(string username, int score) {
@@ -41,6 +43,7 @@ public class Highscores : MonoBehaviour {
 		WWW www = new WWW(webURL + publicCode + "/pipe/");
 		yield return www;
 		
+		//Debug.Log("Downloading Scores..");
 		if (string.IsNullOrEmpty (www.error)) {
 			FormatHighscores (www.text);
 			playerScoreList.OnHighscoresDownloaded(highscoresList);
@@ -58,6 +61,8 @@ public class Highscores : MonoBehaviour {
 			string[] entryInfo = entries[i].Split(new char[] {'|'});
 			string username = entryInfo[0];
 
+
+
 			string[] playerInfo = username.Split(new string[] {"PDMWY"},System.StringSplitOptions.None);
 		
 			string name ="", team ="";
@@ -72,7 +77,7 @@ public class Highscores : MonoBehaviour {
 			int score = int.Parse(entryInfo[1]);
 
 			highscoresList[i] = new Highscore(name,team,score);
-			print (highscoresList[i].name + ": " + highscoresList[i].team + " -> " + highscoresList[i].score);
+			//print (highscoresList[i].name + ": " + highscoresList[i].team + " -> " + highscoresList[i].score);
 		}
 	}
 
