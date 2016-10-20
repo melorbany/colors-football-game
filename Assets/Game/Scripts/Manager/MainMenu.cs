@@ -17,7 +17,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     private Sprite[] soundBtnSprites; //1 for off and 0 for on
     public Button playBtn, leaderboardBtn, rateBtn, fbLikeBtn, soundBtn, moreGamesBtn, noAdsBtn, slideBtn;
-    public string gameScene,leaderScene;
+    public string gameScene,leaderScene,accountScene;
 
     [SerializeField]
     private Animator slideButtonAnim;
@@ -125,7 +125,11 @@ public class MainMenu : MonoBehaviour
 
     void LeaderboardBtn()
     {
-		SceneManager.LoadScene(leaderScene);
+        if(!GameManager.instance.isUserRegistered)
+		   SceneManager.LoadScene(leaderScene);
+        else {
+           SceneManager.LoadScene(accountScene);
+        }
     }
 
     void MoregamesBtn()

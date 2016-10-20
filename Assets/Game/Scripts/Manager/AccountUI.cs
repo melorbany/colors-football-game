@@ -30,8 +30,6 @@ public class AccountUI : MonoBehaviour {
 	void RegisterBtn()
 	{
 
-		Debug.Log ("Register Button");
-
 		string name = nameInputField.text;
 		string team = teamInputField.text;
 		string userName = "";
@@ -40,18 +38,22 @@ public class AccountUI : MonoBehaviour {
 		Debug.Log (name);
 
 		if (name.Length > 4) {
-			userName = Highscores.instance.FormatUserName (name, team);		
-			Highscores.instance.AddNewHighscore (userName , GameManager.instance.hiScore);
-			Debug.Log (userName + GameManager.instance.hiScore);
 
-			SceneManager.LoadScene (leaderScene);
+            userName = Highscores.instance.FormatUserName (name, team);
+            Highscores.instance.AddNewHighscore (userName , GameManager.instance.hiScore);
+            GameManager.instance.isUserRegistered = true;
+            GameManager.instance.regUserName = userName;
+            GameManager.instance.Save();
+
+            SceneManager.LoadScene (leaderScene);
 		}
 	}
 
 	void PlayBtn()
 	{
-		#if UNITY_5_3 || UNITY_5_3_OR_NEWER
-		SceneManager.LoadScene(gameScene);
+        GameManager.instance.isGameOver = false;
+        #if UNITY_5_3 || UNITY_5_3_OR_NEWER
+        SceneManager.LoadScene(gameScene);
 		#else
 		Application.LoadLevel(gameScene);
 		#endif

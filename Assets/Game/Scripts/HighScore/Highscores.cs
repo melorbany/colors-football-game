@@ -16,32 +16,29 @@ public class Highscores : MonoBehaviour {
 
 	void Awake() {
 		playerScoreList = GetComponent<PlayerScoreList> ();
-		MakeInstance ();
-		//Debug.Log (instance);
-	}
+        instance = this;
+        //Debug.Log (instance);
+    }
 
-	void MakeInstance()
-	{
-		if (instance != null)
-		{
-			Destroy(gameObject);
-		}
-		else
-		{
-			instance = this;
-			DontDestroyOnLoad(gameObject);
-		}
-	}
 
 	public void AddNewHighscore(string username, int score) {
 		instance.StartCoroutine(instance.UploadNewHighscore(username,score));
 	}
 
 	IEnumerator UploadNewHighscore(string username, int score) {
-		WWW www = new WWW(webURL + privateCode + "/add/" + WWW.EscapeURL(username) + "/" + score);
-		yield return www;
 
-		if (string.IsNullOrEmpty(www.error)) {
+        Debug.Log("upload high score");
+
+
+        WWW www = new WWW(webURL + privateCode + "/add/" + WWW.EscapeURL(username) + "/" + score);
+        Debug.Log(www);
+
+        yield return www;
+
+       // Debug.Log(username + WWW.EscapeURL(username));
+       Debug.Log (webURL + privateCode + "/add/" + WWW.EscapeURL(username) + "/" + score);
+
+        if (string.IsNullOrEmpty(www.error)) {
 			print ("Upload Successful");
 			//DownloadHighscores();
 		}

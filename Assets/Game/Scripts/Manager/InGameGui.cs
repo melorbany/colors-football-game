@@ -11,8 +11,9 @@ public class InGameGui : MonoBehaviour {
     public Color[] medalCols;
     public Image medal;
     public Button homeBtn, leaderBtn, retryBtn, shareBtn;
-	public string mainMenu,leaderScene;
+	public string mainMenu,leaderScene, accountScene;
     int i = 0;
+    bool isScoreUpdatedOnServe = false;
 	// Use this for initialization
 	void Start ()
     {
@@ -53,6 +54,14 @@ public class InGameGui : MonoBehaviour {
                 GameManager.instance.Save();
                 i = 1;
             }
+
+
+            //Update the list.
+            if (!isScoreUpdatedOnServe && GameManager.instance.isUserRegistered && GameManager.instance.regUserName.Length > 4)
+            {
+                Highscores.instance.AddNewHighscore(GameManager.instance.regUserName, GameManager.instance.currentScore);
+                isScoreUpdatedOnServe = true;
+            }
         }
 
     }
@@ -73,7 +82,12 @@ public class InGameGui : MonoBehaviour {
 
     void LeaderboardBtn()
     {
-		SceneManager.LoadScene(leaderScene);
+        if (GameManager.instance.isUserRegistered)
+            SceneManager.LoadScene(leaderScene);
+        else
+        {
+            SceneManager.LoadScene(accountScene);
+        }
     }
 
     void ShareBtn()

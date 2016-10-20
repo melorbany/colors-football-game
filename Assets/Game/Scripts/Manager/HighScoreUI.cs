@@ -25,8 +25,9 @@ public class HighScoreUI : MonoBehaviour {
 
 	void PlayBtn()
 	{
-		#if UNITY_5_3 || UNITY_5_3_OR_NEWER
-		SceneManager.LoadScene(gameScene);
+        GameManager.instance.isGameOver = false;
+        #if UNITY_5_3 || UNITY_5_3_OR_NEWER
+        SceneManager.LoadScene(gameScene);
 		#else
 		Application.LoadLevel(gameScene);
 		#endif
@@ -35,6 +36,7 @@ public class HighScoreUI : MonoBehaviour {
 
 	void HomeBtn()
 	{
-		SceneManager.LoadScene(mainMenu);
+        GameManager.instance.isGameOver = false;
+        SceneManager.LoadScene(mainMenu);
 	}
 }

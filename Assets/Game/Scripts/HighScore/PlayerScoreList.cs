@@ -16,12 +16,15 @@ public class PlayerScoreList : MonoBehaviour {
 	void Start () {
 
 		highscoresManager = GetComponent<Highscores>();
-/*
-		Highscores.AddNewHighscore("محمد العرباني", 52);
-		Highscores.AddNewHighscore("محمد صث", 23);
-		Highscores.AddNewHighscore("محمد شس", 120);*/
+       /*
+		Highscores.instance.AddNewHighscore("محمد العرباني", 52);
+		Highscores.instance.AddNewHighscore("محمد صث", 23);
+		Highscores.instance.AddNewHighscore("محمد شس", 120);
 
-		StartCoroutine("RefreshHighscores");
+     Debug.Log(highscoresManager);
+     */
+
+        StartCoroutine("RefreshHighscores");
 		while(playerScoreEntryList.transform.childCount > 0) {
 			Transform c = playerScoreEntryList.transform.GetChild(0);
 			c.SetParent(null);  // Become Batman
@@ -30,43 +33,16 @@ public class PlayerScoreList : MonoBehaviour {
 
 		for (int i = 0; i < 1; i++) {
 
-			GameObject go = (GameObject)Instantiate(playerScoreEntryPrefab);
+            //Debug.Log("loading");
+
+            GameObject go = (GameObject)Instantiate(playerScoreEntryPrefab);
 			go.transform.SetParent(playerScoreEntryList.transform,false);
 			go.transform.Find ("Name").GetComponent<Text> ().text = ArabicFixer.Fix ("جاري التحميل", true, true);
 			go.transform.Find ("Team").GetComponent<Text> ().text ="";
 			go.transform.Find ("Score").GetComponent<Text> ().text = "";
 		}
 
-
-
-//		scoreManager = GameObject.FindObjectOfType<ScoreManager>();
-//		lastChangeCounter = scoreManager.GetChangeCounter();
-
-//		if(scoreManager == null) {
-//			Debug.LogError("You forgot to add the score manager component to a game object!");
-//			return;
-//		}
-//
-//
-//		lastChangeCounter = 0;
-//
-//
-
-//
-//		return;
-//
-//		string[] names = scoreManager.GetPlayerNames("kills");
-//
-//		foreach(string name in names) {
-//
-//			Debug.Log("Player Score Update 3" + name + "Length : " + names.Length );
-//
-//			GameObject go = (GameObject)Instantiate(playerScoreEntryPrefab);
-//			go.transform.SetParent(this.transform);
-//			go.transform.Find ("Name").GetComponent<Text>().text = name;
-//			go.transform.Find ("Team").GetComponent<Text>().text = scoreManager.GetScore(name, "kills").ToString();
-//			go.transform.Find ("Score").GetComponent<Text>().text = scoreManager.GetScore(name, "deaths").ToString();
-//		}
+   
 	}
 	
 	// Update is called once per frame
@@ -90,10 +66,11 @@ public class PlayerScoreList : MonoBehaviour {
 			if (i == 3) {
 				go.transform.GetComponent<Image> ().color = Color.grey;
 			}
-			//Debug.Log (ArabicFixer.Fix (highscoreList[i].name, true, true));
-			go.transform.Find ("Name").GetComponent<Text> ().text = ArabicFixer.Fix (highscoreList[i].name, true, true);
-			go.transform.Find ("Team").GetComponent<Text> ().text = ArabicFixer.Fix (highscoreList[i].team, true, true);
-			go.transform.Find ("Score").GetComponent<Text> ().text = highscoreList[i].score.ToString();
+			Debug.Log (highscoreList[i].name +" - >"+ArabicFixer.Fix (highscoreList[i].name, true, true));
+
+            go.transform.Find("Name").GetComponent<Text>().text = highscoreList[i].name;
+            go.transform.Find("Team").GetComponent<Text>().text = highscoreList[i].team;
+            go.transform.Find ("Score").GetComponent<Text> ().text = highscoreList[i].score.ToString();
 		}
 
 	}
