@@ -1,24 +1,39 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Text.RegularExpressions;
 
 public class Highscores : MonoBehaviour {
 
+	public static Highscores instance;
 	const string privateCode = "xwuy6MA6J0mbC0rUNCv_6wkRAQBRsmCEqDqIroV6MV8g";
 	const string publicCode = "5805a5788af60306c09fb413";
 	const string webURL = "http://dreamlo.com/lb/";
+	const string idSperator = "VKHVQ";
+	const string teamSperator = "PDMWY";
 
 	PlayerScoreList playerScoreList;
 	public Highscore[] highscoresList;
-	static Highscores instance;
-	
+
 	void Awake() {
 		playerScoreList = GetComponent<PlayerScoreList> ();
-		instance = this;
-
-		//Debug.Log (playerScoreList);
+		MakeInstance ();
+		//Debug.Log (instance);
 	}
 
-	public static void AddNewHighscore(string username, int score) {
+	void MakeInstance()
+	{
+		if (instance != null)
+		{
+			Destroy(gameObject);
+		}
+		else
+		{
+			instance = this;
+			DontDestroyOnLoad(gameObject);
+		}
+	}
+
+	public void AddNewHighscore(string username, int score) {
 		instance.StartCoroutine(instance.UploadNewHighscore(username,score));
 	}
 
@@ -28,7 +43,7 @@ public class Highscores : MonoBehaviour {
 
 		if (string.IsNullOrEmpty(www.error)) {
 			print ("Upload Successful");
-			DownloadHighscores();
+			//DownloadHighscores();
 		}
 		else {
 			print ("Error uploading: " + www.error);
@@ -63,17 +78,26 @@ public class Highscores : MonoBehaviour {
 
 
 
-			string[] playerInfo = username.Split(new string[] {"PDMWY"},System.StringSplitOptions.None);
+			string[] playerInfo = username.Split(new string[] {teamSperator},System.StringSplitOptions.None);
 		
 			string name ="", team ="";
 			if (playerInfo.Length > 1) {
 				name = playerInfo [0];
 				team = playerInfo [1];
+
+				string[] nameInfo = name.Split(new string[] {idSperator},System.StringSplitOptions.None);
+				if (nameInfo.Length > 1) {
+					name = nameInfo [1];
+				}
+
+
 			} else {
 				name = username;
 			}
 
 		
+			name = name.Replace ('+', ' ');
+
 			int score = int.Parse(entryInfo[1]);
 
 			highscoresList[i] = new Highscore(name,team,score);
@@ -81,7 +105,18 @@ public class Highscores : MonoBehaviour {
 		}
 	}
 
+
+	public string FormatUserName(string name , string team)
+	{
+		string userName = "";
+		int randomId =  Random.Range(1, 9999);
+		userName = randomId + idSperator + name + teamSperator + team;
+		return userName;
+	}
+
 }
+
+
 
 public struct Highscore {
 	public string name;

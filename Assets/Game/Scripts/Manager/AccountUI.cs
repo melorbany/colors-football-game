@@ -4,16 +4,18 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using ArabicSupport;
 
+
 public class AccountUI : MonoBehaviour {
 
-	public Button playBtn,homeBtn;
+	public Button registerBtn,playBtn,homeBtn;
     public InputField nameInputField, teamInputField;
-	public string gameScene;
-	public string mainMenu;
+	public string gameScene,mainMenu,leaderScene;
 
 
 	// Use this for initialization
 	void Start () {
+
+		registerBtn.GetComponent<Button>().onClick.AddListener(() => { RegisterBtn(); });    //play
 		playBtn.GetComponent<Button>().onClick.AddListener(() => { PlayBtn(); });    //play
 		homeBtn.GetComponent<Button>().onClick.AddListener(() => { HomeBtn(); });    //rate
 
@@ -24,6 +26,27 @@ public class AccountUI : MonoBehaviour {
 	
 	}
 
+
+	void RegisterBtn()
+	{
+
+		Debug.Log ("Register Button");
+
+		string name = nameInputField.text;
+		string team = teamInputField.text;
+		string userName = "";
+
+
+		Debug.Log (name);
+
+		if (name.Length > 4) {
+			userName = Highscores.instance.FormatUserName (name, team);		
+			Highscores.instance.AddNewHighscore (userName , GameManager.instance.hiScore);
+			Debug.Log (userName + GameManager.instance.hiScore);
+
+			SceneManager.LoadScene (leaderScene);
+		}
+	}
 
 	void PlayBtn()
 	{
@@ -45,7 +68,6 @@ public class AccountUI : MonoBehaviour {
 	{
         string fixedArabic = ArabicFixer.Fix(nameInputField.GetComponent<InputField>().text, true, true);
         nameInputField.GetComponent<InputField>().text = fixedArabic;
-        Debug.Log(fixedArabic);
     }
 
 

@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37356585, g: 0.3811212, b: 0.3588764, a: 1}
+  m_IndirectSpecularColor: {r: 0.37356424, g: 0.3811201, b: 0.35887662, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1995,7 +1995,7 @@ Transform:
   m_GameObject: {fileID: 321864480}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.19, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.4178368, z: 1}
+  m_LocalScale: {x: 1.45, y: 1.3, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 568593952}
@@ -2159,8 +2159,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -90, y: 59.54999}
-  m_SizeDelta: {x: 150, y: 190}
+  m_AnchoredPosition: {x: -90, y: 79}
+  m_SizeDelta: {x: 150, y: 230}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &383010793
 MonoBehaviour:
@@ -2627,7 +2627,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &521619722
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3617,8 +3617,8 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 100.00003, y: 59.549995}
-  m_SizeDelta: {x: 150, y: 190}
+  m_AnchoredPosition: {x: 100.00003, y: 79.275024}
+  m_SizeDelta: {x: 150, y: 229.45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &713366059
 MonoBehaviour:
@@ -4766,7 +4766,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.5588235, g: 0.89046645, b: 1, a: 0.019607844}
+  m_BackGroundColor: {r: 0, g: 0.098039225, b: 0, a: 0.019607844}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -6404,7 +6404,7 @@ RectTransform:
   m_RootOrder: 6
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -188}
+  m_AnchoredPosition: {x: 0, y: -258}
   m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1419761258
@@ -6614,8 +6614,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.2, y: 194.8}
-  m_SizeDelta: {x: 388.1, y: 48.5}
+  m_AnchoredPosition: {x: 7, y: 278}
+  m_SizeDelta: {x: 375, y: 85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1420495506
 MonoBehaviour:
