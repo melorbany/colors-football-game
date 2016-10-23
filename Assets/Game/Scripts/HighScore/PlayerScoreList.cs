@@ -63,13 +63,17 @@ public class PlayerScoreList : MonoBehaviour {
 			GameObject go = (GameObject)Instantiate(playerScoreEntryPrefab);
 			go.transform.SetParent(playerScoreEntryList.transform,false);
 
-			if (i == 3) {
+
+			//Debug.Log (GameManager.instance.regUserName + " == " + highscoreList[i].userName + "= ");
+
+
+			if (string.Compare(GameManager.instance.regUserName,highscoreList[i].userName.Replace ('+', ' '))==0) {
 				go.transform.GetComponent<Image> ().color = Color.grey;
 			}
-			Debug.Log (highscoreList[i].name +" - >"+ArabicFixer.Fix (highscoreList[i].name, true, true));
+			//Debug.Log (highscoreList[i].name +" - >"+ArabicFixer.Fix (highscoreList[i].name, true, true));
 
-            go.transform.Find("Name").GetComponent<Text>().text = highscoreList[i].name;
-            go.transform.Find("Team").GetComponent<Text>().text = highscoreList[i].team;
+			go.transform.Find("Name").GetComponent<Text>().text = highscoreList[i].name.Replace ('+', ' ');
+			go.transform.Find("Team").GetComponent<Text>().text = highscoreList[i].team.Replace ('+', ' ');
             go.transform.Find ("Score").GetComponent<Text> ().text = highscoreList[i].score.ToString();
 		}
 

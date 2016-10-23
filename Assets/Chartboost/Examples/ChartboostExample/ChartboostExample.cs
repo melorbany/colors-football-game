@@ -130,9 +130,11 @@ public class ChartboostExample: MonoBehaviour
 //		}
 
 
-		if (GameManager.instance.isGameOver == true && GameManager.instance.canShowAds)
+		if (GameManager.instance.isGameOver == true 
+			&& GameManager.instance.canShowAds)
 		{
-			if (i == 0)
+			if (i == 0 && GameManager.instance.currentScore >= 5 
+				&& GameManager.instance.hiScore >= 10)
 			{
 				ShowAd();
 				i++;

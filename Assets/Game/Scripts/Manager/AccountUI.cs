@@ -37,14 +37,13 @@ public class AccountUI : MonoBehaviour {
 
 		Debug.Log (name);
 
-		if (name.Length > 4) {
+		if (name.Length > 1) {
 
             userName = Highscores.instance.FormatUserName (name, team);
             Highscores.instance.AddNewHighscore (userName , GameManager.instance.hiScore);
             GameManager.instance.isUserRegistered = true;
             GameManager.instance.regUserName = userName;
             GameManager.instance.Save();
-
             SceneManager.LoadScene (leaderScene);
 		}
 	}

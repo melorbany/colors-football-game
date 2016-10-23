@@ -125,7 +125,7 @@ public class MainMenu : MonoBehaviour
 
     void LeaderboardBtn()
     {
-        if(!GameManager.instance.isUserRegistered)
+        if(GameManager.instance.isUserRegistered)
 		   SceneManager.LoadScene(leaderScene);
         else {
            SceneManager.LoadScene(accountScene);

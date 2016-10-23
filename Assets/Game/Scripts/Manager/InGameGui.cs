@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEditor;
 using UnityEngine.SceneManagement;
+using ArabicSupport;
 
 public class InGameGui : MonoBehaviour {
 
@@ -36,18 +38,26 @@ public class InGameGui : MonoBehaviour {
         {
             GameManager.instance.hiScore = GameManager.instance.currentScore;
             GameManager.instance.Save();
+
+			if(!GameManager.instance.isUserRegistered  && GameManager.instance.hiScore > 30)
+			{
+				//ShowRegisterMessage ();
+			}
         }
 
         if (GameManager.instance.isGameOver)
         {
+
             score.text = "" + GameManager.instance.currentScore;
             best.text = "" + GameManager.instance.hiScore;
             MedalColor();
             gameOn.SetActive(false);
             gameOver.SetActive(true);
 
-            if (GameManager.instance.currentScore >= 10 && i == 0)
+            if (GameManager.instance.currentScore >= 1 && i == 0)
             {
+				ShowRegisterMessage ();
+
                 int point = GameManager.instance.currentScore / 10;
                 pointText.text = "+" + point;
                 GameManager.instance.points = point;
@@ -57,11 +67,12 @@ public class InGameGui : MonoBehaviour {
 
 
             //Update the list.
-            if (!isScoreUpdatedOnServe && GameManager.instance.isUserRegistered && GameManager.instance.regUserName.Length > 4)
+            if (!isScoreUpdatedOnServe && GameManager.instance.isUserRegistered 
+				&& GameManager.instance.regUserName.Length > 1)
             {
                 Highscores.instance.AddNewHighscore(GameManager.instance.regUserName, GameManager.instance.currentScore);
                 isScoreUpdatedOnServe = true;
-            }
+			}
         }
 
     }
@@ -119,6 +130,46 @@ public class InGameGui : MonoBehaviour {
             medal.color = medalCols[4];
         }
     }
+
+
+	private void ShowRegisterMessage()
+	{
+		string message = "قم بتسجيل نتيجتك في قائمة الاعبين واثبت للجميع انك تستحق المنافسة. ";
+		string register = "سجل نتيجي";
+		string cancel = "ذكرني لاحقا";
+
+/*		message = ArabicFixer.Fix (message, true, true);
+		register = ArabicFixer.Fix (register, true, true);
+		cancel = ArabicFixer.Fix (cancel, true, true);
+*/
+
+
+		int option = EditorUtility.DisplayDialogComplex( "",
+			message,
+			register,
+			cancel,
+			cancel
+			);
+
+		switch( option )
+		{
+		// Save Scene
+		case 0:
+			EditorApplication.SaveScene( EditorApplication.currentScene );
+			break;
+
+			// Save and Quit.
+		case 1:
+			EditorApplication.SaveScene( EditorApplication.currentScene );
+			EditorApplication.Exit( 0 );
+			break;
+
+		default:
+			Debug.LogError( "Unrecognized option." );
+			break;
+		}
+			
+	}
 
 
 }

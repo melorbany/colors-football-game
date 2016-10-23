@@ -92,12 +92,10 @@ public class Highscores : MonoBehaviour {
 				name = username;
 			}
 
-		
-			name = name.Replace ('+', ' ');
-
+	
 			int score = int.Parse(entryInfo[1]);
 
-			highscoresList[i] = new Highscore(name,team,score);
+			highscoresList[i] = new Highscore(username,name,team,score);
 			//print (highscoresList[i].name + ": " + highscoresList[i].team + " -> " + highscoresList[i].score);
 		}
 	}
@@ -116,11 +114,13 @@ public class Highscores : MonoBehaviour {
 
 
 public struct Highscore {
+	public string userName;
 	public string name;
 	public string team; 
 	public int score;
 
-	public Highscore(string _name,string _team, int _score) {
+	public Highscore(string _userName,string _name,string _team, int _score) {
+		userName = _userName;
 		name = _name;
 		team = _team;
 		score = _score;
