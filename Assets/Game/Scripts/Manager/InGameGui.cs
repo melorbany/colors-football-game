@@ -56,7 +56,7 @@ public class InGameGui : MonoBehaviour {
 
             if (GameManager.instance.currentScore >= 1 && i == 0)
             {
-				ShowRegisterMessage ();
+				//ShowRegisterMessage ();
 
                 int point = GameManager.instance.currentScore / 10;
                 pointText.text = "+" + point;
