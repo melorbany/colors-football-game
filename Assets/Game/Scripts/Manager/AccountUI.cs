@@ -35,7 +35,7 @@ public class AccountUI : MonoBehaviour {
 		string userName = "";
 
 
-		Debug.Log (name);
+		//Debug.Log (name);
 
 		if (name.Length > 1) {
 

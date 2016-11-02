@@ -45,7 +45,7 @@ public class GoogleAdmob : MonoBehaviour
     private RewardBasedVideoAd rewardBasedVideo;
     private float deltaTime = 0.0f;
     private static string outputMessage = string.Empty;
-    private int i = 0;
+    private int j = 0;
 
     public static string OutputMessage
     {
@@ -55,7 +55,7 @@ public class GoogleAdmob : MonoBehaviour
     public void Start()
     {
 
-        i = 0;
+        j = 0;
         // Get singleton reward based video ad reference.
         this.rewardBasedVideo = RewardBasedVideoAd.Instance;
 
@@ -81,12 +81,11 @@ public class GoogleAdmob : MonoBehaviour
         if (GameManager.instance.isGameOver == true
             && GameManager.instance.canShowAds)
         {
-            if (i == 0 && GameManager.instance.currentScore >= 0
+            if (j == 0 && GameManager.instance.currentScore >= 5
                 && GameManager.instance.hiScore >= 10)
             {
-                Debug.Log("ADMOB Interstitial ADS");
                 ShowInterstitial();
-                i++;
+                j++;
             }
         }
 

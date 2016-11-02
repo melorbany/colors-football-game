@@ -129,7 +129,7 @@ public class ChartboostExample: MonoBehaviour
 //			frameCount = 0;
 //		}
 
-
+		/*
 		if (GameManager.instance.isGameOver == true 
 			&& GameManager.instance.canShowAds)
 		{
@@ -140,7 +140,7 @@ public class ChartboostExample: MonoBehaviour
 				ShowAd();
 				i++;
 			}
-		}
+		}*/
 
 		/*Chartboost.cacheInterstitial (CBLocation.Default);
 		if (Chartboost.hasInterstitial (CBLocation.Default)) {

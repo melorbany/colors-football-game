@@ -52,7 +52,7 @@ public class Highscores : MonoBehaviour {
 	}
 
 	IEnumerator DownloadHighscoresFromDatabase() {
-		WWW www = new WWW(webURL + publicCode + "/pipe/");
+		WWW www = new WWW(webURL + publicCode + "/pipe/5");
 		yield return www;
 		
 		//Debug.Log("Downloading Scores..");
