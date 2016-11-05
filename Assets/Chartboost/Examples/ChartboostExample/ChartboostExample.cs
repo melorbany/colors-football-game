@@ -55,7 +55,7 @@ public class ChartboostExample: MonoBehaviour
 		Chartboost.setAutoCacheAds(autocache);
 		Chartboost.setMediation (CBMediation.AdMob, "1.0");
 
-		AddLog("Is Initialized: " + Chartboost.isInitialized());
+		//AddLog("Is Initialized: " + Chartboost.isInitialized());
 		/*
 		// Create the Chartboost gameobject with the editor AppId and AppSignature
 		// Remove the Chartboost gameobject from the sample first
@@ -129,15 +129,18 @@ public class ChartboostExample: MonoBehaviour
 //			frameCount = 0;
 //		}
 
-
-		if (GameManager.instance.isGameOver == true && GameManager.instance.canShowAds)
+		/*
+		if (GameManager.instance.isGameOver == true 
+			&& GameManager.instance.canShowAds)
 		{
-			if (i == 0)
+			if (i == 0 && GameManager.instance.currentScore >= 0 
+				&& GameManager.instance.hiScore >= 1)
 			{
+                Debug.Log("CHARTBOOST ADS");
 				ShowAd();
 				i++;
 			}
-		}
+		}*/
 
 		/*Chartboost.cacheInterstitial (CBLocation.Default);
 		if (Chartboost.hasInterstitial (CBLocation.Default)) {

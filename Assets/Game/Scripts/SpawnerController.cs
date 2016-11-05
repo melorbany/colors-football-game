@@ -156,7 +156,7 @@ public class SpawnerController : MonoBehaviour {
         if (GameManager.instance.currentScore > timeMileStoneCount)
         {
             timeMileStoneCount += timeDecreaseMileStone;
-            timeDecreaseMileStone += 10f; //well this set the new mile stone which the score
+            timeDecreaseMileStone += 5f; //well this set the new mile stone which the score
             time -= timeReduce;
 
             if (time < minTime)
