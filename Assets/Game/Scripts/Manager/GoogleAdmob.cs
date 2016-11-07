@@ -136,13 +136,13 @@ public class GoogleAdmob : MonoBehaviour
     {
         // These ad units are configured to always serve test ads.
         #if UNITY_EDITOR
-        string adUnitId = "unused";
+		string adUnitId = "ca-app-pub-2629589607140878/8930759540";
         #elif UNITY_ANDROID
-                string adUnitId = "";
+		string adUnitId = "ca-app-pub-2629589607140878/8930759540";
         #elif UNITY_IPHONE
-                string adUnitId = "ca-app-pub-2629589607140878/2307096744";
+            string adUnitId = "ca-app-pub-2629589607140878/2307096744";
         #else
-                string adUnitId = "unexpected_platform";
+            string adUnitId = "unexpected_platform";
         #endif
 
         // Create an interstitial.
