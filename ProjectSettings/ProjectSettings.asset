@@ -165,8 +165,8 @@ PlayerSettings:
   AndroidTargetDevice: 3
   AndroidSplashScreenScale: 1
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: 
-  AndroidKeyaliasName: 
+  AndroidKeystoreName: /Users/mohamed/Desktop/keystore.keystore
+  AndroidKeyaliasName: color football
   AndroidTVCompatibility: 0
   AndroidIsGame: 1
   androidEnableBanner: 1
@@ -186,27 +186,27 @@ PlayerSettings:
   - m_BuildTarget: Android
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 2fc59a8aafd42d946a8e75cc862dcf89, type: 3}
+      m_Icon: {fileID: 2800000, guid: cbd6b857d30a44dd4bffac087461d36e, type: 3}
       m_Width: 192
       m_Height: 192
     - serializedVersion: 2
-      m_Icon: {fileID: 0}
+      m_Icon: {fileID: 2800000, guid: 9456fd6971a4b4d8a9d9d44eda1fa91f, type: 3}
       m_Width: 144
       m_Height: 144
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: e4366c4546f208e4db591f88e82b0582, type: 3}
+      m_Icon: {fileID: 2800000, guid: f1ff8521c79b24047a8aaa1e608858d5, type: 3}
       m_Width: 96
       m_Height: 96
     - serializedVersion: 2
-      m_Icon: {fileID: 0}
+      m_Icon: {fileID: 2800000, guid: 1b77b3a751c2949019a36c5b8dd52bf0, type: 3}
       m_Width: 72
       m_Height: 72
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 133193109e78a1b42a36a330f97bd02b, type: 3}
+      m_Icon: {fileID: 2800000, guid: 0704622cd320f4505bbb64f4985b69c7, type: 3}
       m_Width: 48
       m_Height: 48
     - serializedVersion: 2
-      m_Icon: {fileID: 0}
+      m_Icon: {fileID: 2800000, guid: 0704622cd320f4505bbb64f4985b69c7, type: 3}
       m_Width: 36
       m_Height: 36
   m_BuildTargetBatching: []
