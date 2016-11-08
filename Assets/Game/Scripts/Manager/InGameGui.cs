@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using ArabicSupport;
 
 public class InGameGui : MonoBehaviour {
 
@@ -11,8 +12,9 @@ public class InGameGui : MonoBehaviour {
     public Color[] medalCols;
     public Image medal;
     public Button homeBtn, leaderBtn, retryBtn, shareBtn;
-    public string mainMenu;
+	public string mainMenu,leaderScene, accountScene;
     int i = 0;
+    bool isScoreUpdatedOnServe = false;
 	// Use this for initialization
 	void Start ()
     {
@@ -35,10 +37,16 @@ public class InGameGui : MonoBehaviour {
         {
             GameManager.instance.hiScore = GameManager.instance.currentScore;
             GameManager.instance.Save();
+
+			if(!GameManager.instance.isUserRegistered  && GameManager.instance.hiScore > 30)
+			{
+				//ShowRegisterMessage ();
+			}
         }
 
         if (GameManager.instance.isGameOver)
         {
+
             score.text = "" + GameManager.instance.currentScore;
             best.text = "" + GameManager.instance.hiScore;
             MedalColor();
@@ -47,12 +55,25 @@ public class InGameGui : MonoBehaviour {
 
             if (GameManager.instance.currentScore >= 10 && i == 0)
             {
+				//ShowRegisterMessage ();
+
                 int point = GameManager.instance.currentScore / 10;
                 pointText.text = "+" + point;
                 GameManager.instance.points = point;
                 GameManager.instance.Save();
                 i = 1;
             }
+
+
+            //Update the list.
+			if (!isScoreUpdatedOnServe && GameManager.instance.isUserRegistered
+			             && GameManager.instance.regUserName.Length > 1) {
+				Highscores.instance.AddNewHighscore (GameManager.instance.regUserName, GameManager.instance.hiScore);
+				isScoreUpdatedOnServe = true;
+			} else if (!GameManager.instance.isUserRegistered 
+				&& GameManager.instance.currentScore >= 40) {
+				SceneManager.LoadScene(accountScene);
+			}
         }
 
     }
@@ -73,7 +94,12 @@ public class InGameGui : MonoBehaviour {
 
     void LeaderboardBtn()
     {
-        sound.Play();
+        if (GameManager.instance.isUserRegistered)
+            SceneManager.LoadScene(leaderScene);
+        else
+        {
+            SceneManager.LoadScene(accountScene);
+        }
     }
 
     void ShareBtn()

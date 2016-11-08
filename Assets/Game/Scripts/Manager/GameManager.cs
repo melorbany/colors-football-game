@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour {
     public bool canShowAds;//when noAds is false we show ads and when its true we dont show it
     public bool showRate;
     public bool[] textureUnlocked;
+	public bool isUserRegistered;
+	public String regUserName;
     //ref to the background music
     //private AudioSource audio;
 
@@ -90,10 +92,15 @@ public class GameManager : MonoBehaviour {
             isMusicOn = true;
             canShowAds = true;
             showRate = true;
+			isUserRegistered = false;
+			regUserName = "";
+
             data = new GameData();
 
             //storing data
             data.setIsGameStartedFirstTime(isGameStartedFirstTime);
+			data.setIsUserRegistered (isUserRegistered);
+			data.setRegUserName (regUserName);
             data.setIsMusicOn(isMusicOn);
             data.setHiScore(hiScore);
             data.setPoints(points);
@@ -108,6 +115,8 @@ public class GameManager : MonoBehaviour {
         {
             //getting data
             isGameStartedFirstTime = data.getIsGameStartedFirstTime();
+			isUserRegistered = data.getIsUserRegistered ();
+			regUserName = data.getRegUserName ();
             isMusicOn = data.getIsMusicOn();
             hiScore = data.getHiScore();
             points = data.getPoints();
@@ -142,7 +151,9 @@ public class GameManager : MonoBehaviour {
             if (data != null)
             {
                 data.setIsGameStartedFirstTime(isGameStartedFirstTime);
-                data.setHiScore(hiScore);
+				data.setIsUserRegistered (isUserRegistered);
+				data.setRegUserName (regUserName);
+				data.setHiScore(hiScore);
                 data.setPoints(points);
                 data.setTexture(textureStyle);
                 data.setTextureUnlocked(textureUnlocked);
@@ -193,6 +204,9 @@ class GameData
     private bool[] textureUnlocked;
     private bool canShowAds;
     private bool showRate;
+	private bool isUserRegistered;
+	private String regUserName;
+
 
     //is game started 1st time
     public void setIsGameStartedFirstTime(bool isGameStartedFirstTime)
@@ -200,10 +214,32 @@ class GameData
         this.isGameStartedFirstTime = isGameStartedFirstTime;
     }
 
-    public bool getIsGameStartedFirstTime()
+
+	public void setIsUserRegistered(bool isUserRegistered)
+	{
+		this.isUserRegistered = isUserRegistered;
+	}
+
+	public void setRegUserName(String regUserName)
+	{
+		this.regUserName = regUserName;
+	}
+
+	public bool getIsUserRegistered()
     {
-        return isGameStartedFirstTime;
+		return isUserRegistered;
     }
+
+	public String getRegUserName()
+	{
+		return regUserName;
+	}
+
+	public bool getIsGameStartedFirstTime()
+	{
+		return isGameStartedFirstTime;
+	}
+
 
     //ads
     public void setCanShowAds(bool canShowAds)

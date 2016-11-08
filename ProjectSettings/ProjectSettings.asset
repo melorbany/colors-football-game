@@ -11,7 +11,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 0
   companyName: Tatbiqat
-  productName: "\u062D\u0631\u064A\u0641 \u0627\u0644\u0643\u0631\u0629"
+  productName: "\u0643\u0631\u0629 \u0627\u0644\u0627\u0644\u0648\u0627\u0646"
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenStyle: 0
@@ -94,8 +94,8 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleIdentifier: com.tatbiqat.ColorFootballTest
-  bundleVersion: 0.1
+  bundleIdentifier: com.tatbiqat.colorfootball
+  bundleVersion: 1.0
   preloadedAssets: []
   metroEnableIndependentInputSource: 0
   xboxOneDisableKinectGpuReservation: 0
@@ -109,7 +109,7 @@ PlayerSettings:
   stripEngineCode: 1
   iPhoneStrippingLevel: 0
   iPhoneScriptCallOptimization: 1
-  iPhoneBuildNumber: 0
+  iPhoneBuildNumber: 1
   ForceInternetPermission: 0
   ForceSDCardPermission: 0
   CreateWallpaper: 0
@@ -143,7 +143,7 @@ PlayerSettings:
   tvOSSmallIconLayers: []
   tvOSLargeIconLayers: []
   tvOSTopShelfImageLayers: []
-  iOSLaunchScreenType: 0
+  iOSLaunchScreenType: 3
   iOSLaunchScreenPortrait: {fileID: 0}
   iOSLaunchScreenLandscape: {fileID: 0}
   iOSLaunchScreenBackgroundColor:
@@ -152,7 +152,7 @@ PlayerSettings:
   iOSLaunchScreenFillPct: 100
   iOSLaunchScreenSize: 100
   iOSLaunchScreenCustomXibPath: 
-  iOSLaunchScreeniPadType: 0
+  iOSLaunchScreeniPadType: 3
   iOSLaunchScreeniPadImage: {fileID: 0}
   iOSLaunchScreeniPadBackgroundColor:
     serializedVersion: 2
@@ -165,8 +165,8 @@ PlayerSettings:
   AndroidTargetDevice: 3
   AndroidSplashScreenScale: 1
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: 
-  AndroidKeyaliasName: 
+  AndroidKeystoreName: /Users/mohamed/Desktop/keystore.keystore
+  AndroidKeyaliasName: color football
   AndroidTVCompatibility: 0
   AndroidIsGame: 1
   androidEnableBanner: 1
@@ -180,33 +180,33 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 87b9d0877a3be4273b7e42807f6f1373, type: 3}
-      m_Width: 0
-      m_Height: 0
+      m_Icon: {fileID: 2800000, guid: 6b9e75e7ffbb34cd3ad38af2c9cc722a, type: 3}
+      m_Width: 128
+      m_Height: 128
   - m_BuildTarget: Android
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 2fc59a8aafd42d946a8e75cc862dcf89, type: 3}
+      m_Icon: {fileID: 2800000, guid: cbd6b857d30a44dd4bffac087461d36e, type: 3}
       m_Width: 192
       m_Height: 192
     - serializedVersion: 2
-      m_Icon: {fileID: 0}
+      m_Icon: {fileID: 2800000, guid: 9456fd6971a4b4d8a9d9d44eda1fa91f, type: 3}
       m_Width: 144
       m_Height: 144
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: e4366c4546f208e4db591f88e82b0582, type: 3}
+      m_Icon: {fileID: 2800000, guid: f1ff8521c79b24047a8aaa1e608858d5, type: 3}
       m_Width: 96
       m_Height: 96
     - serializedVersion: 2
-      m_Icon: {fileID: 0}
+      m_Icon: {fileID: 2800000, guid: 1b77b3a751c2949019a36c5b8dd52bf0, type: 3}
       m_Width: 72
       m_Height: 72
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 133193109e78a1b42a36a330f97bd02b, type: 3}
+      m_Icon: {fileID: 2800000, guid: 0704622cd320f4505bbb64f4985b69c7, type: 3}
       m_Width: 48
       m_Height: 48
     - serializedVersion: 2
-      m_Icon: {fileID: 0}
+      m_Icon: {fileID: 2800000, guid: 0704622cd320f4505bbb64f4985b69c7, type: 3}
       m_Width: 36
       m_Height: 36
   m_BuildTargetBatching: []
