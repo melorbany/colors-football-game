@@ -3,12 +3,15 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using ArabicSupport;
+using SmartLocalization;
 
 public class InGameGui : MonoBehaviour {
 
     private AudioSource sound;
     public GameObject gameOn , gameOver;
     public Text score, best, ingameScore, pointText;
+	public Text gameOverText,scoreText,highScoreText;
+
     public Color[] medalCols;
     public Image medal;
     public Button homeBtn, leaderBtn, retryBtn, shareBtn;
@@ -18,14 +21,19 @@ public class InGameGui : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        sound = GetComponent<AudioSource>();
+		LanguageManager.Instance.ChangeLanguage (LanguageManager.Instance.GetDeviceCultureIfSupported ());
+		gameOverText.text = ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("GameOver").ToUpper());
+		scoreText.text = ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("Score").ToUpper());
+		highScoreText.text = ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("HighScore").ToUpper());
+    
+		sound = GetComponent<AudioSource>();
         GameManager.instance.currentScore = 0;
         ingameScore.text = "" + GameManager.instance.currentScore;
         homeBtn.GetComponent<Button>().onClick.AddListener(() => { HomeBtn(); });    //home
         leaderBtn.GetComponent<Button>().onClick.AddListener(() => { LeaderboardBtn(); });    //leaderboard
         retryBtn.GetComponent<Button>().onClick.AddListener(() => { RetryBtn(); });    //retry
         shareBtn.GetComponent<Button>().onClick.AddListener(() => { ShareBtn(); });    //snapshot
-        
+
     }
 
     // Update is called once per frame
@@ -71,7 +79,7 @@ public class InGameGui : MonoBehaviour {
 				Highscores.instance.AddNewHighscore (GameManager.instance.regUserName, GameManager.instance.hiScore);
 				isScoreUpdatedOnServe = true;
 			} else if (!GameManager.instance.isUserRegistered 
-				&& GameManager.instance.currentScore >= 40) {
+				&& GameManager.instance.currentScore >= 20) {
 				SceneManager.LoadScene(accountScene);
 			}
         }

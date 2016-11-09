@@ -81,8 +81,7 @@ public class GoogleAdmob : MonoBehaviour
         if (GameManager.instance.isGameOver == true
             && GameManager.instance.canShowAds)
         {
-            if (j == 0 && GameManager.instance.currentScore >= 5
-                && GameManager.instance.hiScore >= 10)
+            if (j == 0 && GameManager.instance.currentScore >= 3)
             {
                 ShowInterstitial();
                 j++;

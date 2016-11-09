@@ -27,16 +27,16 @@ public class Highscores : MonoBehaviour {
 
 	IEnumerator UploadNewHighscore(string username, int score) {
 
-        Debug.Log("upload high score");
+        //Debug.Log("upload high score");
 
 
         WWW www = new WWW(webURL + privateCode + "/add/" + WWW.EscapeURL(username) + "/" + score);
-        Debug.Log(www);
+        //Debug.Log(www);
 
         yield return www;
 
        // Debug.Log(username + WWW.EscapeURL(username));
-       Debug.Log (webURL + privateCode + "/add/" + WWW.EscapeURL(username) + "/" + score);
+      // Debug.Log (webURL + privateCode + "/add/" + WWW.EscapeURL(username) + "/" + score);
 
         if (string.IsNullOrEmpty(www.error)) {
 			print ("Upload Successful");

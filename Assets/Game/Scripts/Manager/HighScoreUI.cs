@@ -2,6 +2,8 @@
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using ArabicSupport;
+using SmartLocalization;
 
 
 public class HighScoreUI : MonoBehaviour {
@@ -9,10 +11,13 @@ public class HighScoreUI : MonoBehaviour {
 	public Button playBtn,homeBtn;
 	public string gameScene;
 	public string mainMenu;
+	public Text titleText;
 
 
 	// Use this for initialization
 	void Start () {
+		LanguageManager.Instance.ChangeLanguage (LanguageManager.Instance.GetDeviceCultureIfSupported ());
+		titleText.text = ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("BestPlayers").ToUpper());
 		playBtn.GetComponent<Button>().onClick.AddListener(() => { PlayBtn(); });    //play
 		homeBtn.GetComponent<Button>().onClick.AddListener(() => { HomeBtn(); });    //rate
 	}

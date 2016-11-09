@@ -93,7 +93,7 @@ public class ScoreManager : MonoBehaviour {
 		SetScore("CCCCCC", "kills", 1);
 		
 		
-		Debug.Log (  GetScore("quill18", "kills") );
+		//Debug.Log (  GetScore("quill18", "kills") );
 	}
 
 }

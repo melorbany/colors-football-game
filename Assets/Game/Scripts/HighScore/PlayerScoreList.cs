@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using ArabicSupport;
+using SmartLocalization;
 
 public class PlayerScoreList : MonoBehaviour {
 
@@ -31,13 +32,15 @@ public class PlayerScoreList : MonoBehaviour {
 			Destroy (c.gameObject);
 		}
 
+		LanguageManager.Instance.ChangeLanguage (LanguageManager.Instance.GetDeviceCultureIfSupported ());
 		for (int i = 0; i < 1; i++) {
 
             //Debug.Log("loading");
 
             GameObject go = (GameObject)Instantiate(playerScoreEntryPrefab);
 			go.transform.SetParent(playerScoreEntryList.transform,false);
-			go.transform.Find ("Name").GetComponent<Text> ().text = ArabicFixer.Fix ("جاري التحميل", true, true);
+
+			go.transform.Find ("Name").GetComponent<Text> ().text =  ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("Loading").ToUpper());
 			go.transform.Find ("Team").GetComponent<Text> ().text ="";
 			go.transform.Find ("Score").GetComponent<Text> ().text = "";
 		}

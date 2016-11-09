@@ -165,7 +165,7 @@ PlayerSettings:
   AndroidTargetDevice: 3
   AndroidSplashScreenScale: 1
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: /Users/mohamed/Desktop/keystore.keystore
+  AndroidKeystoreName: keystore.keystore
   AndroidKeyaliasName: color football
   AndroidTVCompatibility: 0
   AndroidIsGame: 1

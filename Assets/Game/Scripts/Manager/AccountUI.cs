@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using ArabicSupport;
+using SmartLocalization;
 
 
 public class AccountUI : MonoBehaviour {
@@ -11,9 +12,17 @@ public class AccountUI : MonoBehaviour {
     public InputField nameInputField, teamInputField;
 	public string gameScene,mainMenu,leaderScene;
 
+	public Text titleP1,titleP2 ,registerButtonText;
 
 	// Use this for initialization
 	void Start () {
+
+		LanguageManager.Instance.ChangeLanguage (LanguageManager.Instance.GetDeviceCultureIfSupported ());
+		titleP1.text = ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("Register1").ToUpper());
+		titleP2.text = ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("Register2").ToUpper());
+		nameInputField.GetComponent<InputField>().text = ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("YourName").ToUpper());
+		teamInputField.GetComponent<InputField>().text = ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("YourTeam").ToUpper());
+		registerButtonText.text = ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("Register").ToUpper());
 
 		registerBtn.GetComponent<Button>().onClick.AddListener(() => { RegisterBtn(); });    //play
 		playBtn.GetComponent<Button>().onClick.AddListener(() => { PlayBtn(); });    //play

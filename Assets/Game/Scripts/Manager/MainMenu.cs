@@ -2,6 +2,8 @@
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using SmartLocalization;
+using ArabicSupport;
 
 public class MainMenu : MonoBehaviour
 {
@@ -13,7 +15,7 @@ public class MainMenu : MonoBehaviour
 
     private AudioSource sound;
 
-    public Text bestScore;
+    public Text bestScore,gameNameP1,gameNameP2;
     [SerializeField]
     private Sprite[] soundBtnSprites; //1 for off and 0 for on
     public Button playBtn, leaderboardBtn, rateBtn, fbLikeBtn, soundBtn, moreGamesBtn, noAdsBtn, slideBtn;
@@ -25,12 +27,19 @@ public class MainMenu : MonoBehaviour
     private bool hidden;
     private bool canTouchSlideButton;
 
+
     // Use this for initialization
     void Start()
     {
         bestScore.text = "" + GameManager.instance.hiScore;
         canTouchSlideButton = true;
         hidden = true;
+
+		//LanguageManager.Instance.ChangeLanguage ("ar");
+		LanguageManager.Instance.ChangeLanguage (LanguageManager.Instance.GetDeviceCultureIfSupported ());
+		gameNameP1.text = ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("GameName1").ToUpper());
+		gameNameP2.text = ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("GameName2").ToUpper());
+
         sound = GetComponent<AudioSource>();
         playBtn.GetComponent<Button>().onClick.AddListener(() => { PlayBtn(); });    //play
         rateBtn.GetComponent<Button>().onClick.AddListener(() => { RateBtn(); });    //rate
