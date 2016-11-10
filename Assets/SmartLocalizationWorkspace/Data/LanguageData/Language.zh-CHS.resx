@@ -117,39 +117,39 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
 	<data name="BestPlayers" xml:space="preserve">
-		<value />
+		<value>最好的球员 </value>
 	</data>
 	<data name="GameName1" xml:space="preserve">
 		<value />
 	</data>
 	<data name="GameName2" xml:space="preserve">
-		<value />
+		<value>颜色足球</value>
 	</data>
 	<data name="GameOver" xml:space="preserve">
-		<value />
+		<value>游戏结束</value>
 	</data>
 	<data name="HighScore" xml:space="preserve">
-		<value />
+		<value>最好的</value>
 	</data>
 	<data name="Loading" xml:space="preserve">
-		<value />
+		<value>请稍候 </value>
 	</data>
 	<data name="Register" xml:space="preserve">
-		<value />
+		<value>登记册</value>
 	</data>
 	<data name="Register1" xml:space="preserve">
-		<value />
+		<value>现在注册</value>
 	</data>
 	<data name="Register2" xml:space="preserve">
-		<value />
+		<value>享受比赛</value>
 	</data>
 	<data name="Score" xml:space="preserve">
-		<value />
+		<value>得分</value>
 	</data>
 	<data name="YourName" xml:space="preserve">
-		<value />
+		<value>您的姓名</value>
 	</data>
 	<data name="YourTeam" xml:space="preserve">
-		<value />
+		<value>你最喜欢的球队</value>
 	</data>
 </root>

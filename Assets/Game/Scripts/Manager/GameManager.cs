@@ -33,15 +33,6 @@ public class GameManager : MonoBehaviour {
 	public String regUserName;
 
 
-	Dictionary<string, string> dictionary = 
-		new Dictionary<string, string> { { "English", "en" }, { "Arabic", "ar" },
-		{ "Chinese", "zh-CHS" }, { "Japanese", "ja" },{ "Russian", "ru" }, { "German", "de" }
-		,{ "French", "fr" }, { "Spanish", "es" }};
-
-
-    //ref to the background music
-    //private AudioSource audio;
-
     void Awake()
     {
         MakeInstance();

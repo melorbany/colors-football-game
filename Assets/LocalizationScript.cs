@@ -4,12 +4,12 @@ using SmartLocalization;
 using System.Collections.Generic;
 
 public class LocalizationScript : MonoBehaviour {
-
+//
 	Dictionary<string, string> dictionary = 
 		new Dictionary<string, string> { { "English", "en" }, { "Arabic", "ar" },
 		{ "Chinese", "zh-CHS" }, { "Japanese", "ja" },{ "Russian", "ru" }, { "German", "de" }
 		,{ "French", "fr" }, { "Spanish", "es" }};
-
+//
 
 	// Use this for initialization
 	void Start () {

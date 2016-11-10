@@ -40,7 +40,17 @@ public class PlayerScoreList : MonoBehaviour {
             GameObject go = (GameObject)Instantiate(playerScoreEntryPrefab);
 			go.transform.SetParent(playerScoreEntryList.transform,false);
 
-			go.transform.Find ("Name").GetComponent<Text> ().text =  ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("Loading").ToUpper());
+
+			//LanguageManager.Instance.ChangeLanguage ("ja");
+
+			if (LanguageManager.Instance.GetDeviceCultureIfSupported ().languageCode.Equals ("ar")) {
+				go.transform.Find ("Name").GetComponent<Text> ().text =  ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("Loading"));
+			} else {
+				go.transform.Find ("Name").GetComponent<Text> ().text =  LanguageManager.Instance.GetTextValue ("Loading");
+			}
+
+
+
 			go.transform.Find ("Team").GetComponent<Text> ().text ="";
 			go.transform.Find ("Score").GetComponent<Text> ().text = "";
 		}

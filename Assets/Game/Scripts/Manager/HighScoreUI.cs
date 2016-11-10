@@ -16,8 +16,18 @@ public class HighScoreUI : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		
 		LanguageManager.Instance.ChangeLanguage (LanguageManager.Instance.GetDeviceCultureIfSupported ());
-		titleText.text = ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("BestPlayers").ToUpper());
+
+		//LanguageManager.Instance.ChangeLanguage ("ja");
+
+		if (LanguageManager.Instance.GetDeviceCultureIfSupported ().languageCode.Equals ("ar")) {
+			titleText.text = ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("BestPlayers"));
+		} else {
+			titleText.text = LanguageManager.Instance.GetTextValue ("BestPlayers");
+		}
+
+
 		playBtn.GetComponent<Button>().onClick.AddListener(() => { PlayBtn(); });    //play
 		homeBtn.GetComponent<Button>().onClick.AddListener(() => { HomeBtn(); });    //rate
 	}

@@ -22,10 +22,20 @@ public class InGameGui : MonoBehaviour {
 	void Start ()
     {
 		LanguageManager.Instance.ChangeLanguage (LanguageManager.Instance.GetDeviceCultureIfSupported ());
-		gameOverText.text = ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("GameOver").ToUpper());
-		scoreText.text = ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("Score").ToUpper());
-		highScoreText.text = ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("HighScore").ToUpper());
-    
+		//LanguageManager.Instance.ChangeLanguage ("ja");
+
+		//Debug.Log (LanguageManager.Instance.GetDeviceCultureIfSupported ().languageCode.Equals("ar"));
+
+		if (LanguageManager.Instance.GetDeviceCultureIfSupported ().languageCode.Equals ("ar")) {
+			gameOverText.text = ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("GameOver"));
+			scoreText.text = ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("Score"));
+			highScoreText.text = ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("HighScore"));
+		} else {
+			gameOverText.text = LanguageManager.Instance.GetTextValue ("GameOver").ToUpper();
+			scoreText.text = LanguageManager.Instance.GetTextValue ("Score").ToUpper();
+			highScoreText.text = LanguageManager.Instance.GetTextValue ("HighScore").ToUpper();
+		}
+	
 		sound = GetComponent<AudioSource>();
         GameManager.instance.currentScore = 0;
         ingameScore.text = "" + GameManager.instance.currentScore;

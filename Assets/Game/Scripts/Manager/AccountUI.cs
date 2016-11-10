@@ -18,11 +18,27 @@ public class AccountUI : MonoBehaviour {
 	void Start () {
 
 		LanguageManager.Instance.ChangeLanguage (LanguageManager.Instance.GetDeviceCultureIfSupported ());
-		titleP1.text = ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("Register1").ToUpper());
-		titleP2.text = ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("Register2").ToUpper());
-		nameInputField.GetComponent<InputField>().text = ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("YourName").ToUpper());
-		teamInputField.GetComponent<InputField>().text = ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("YourTeam").ToUpper());
-		registerButtonText.text = ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("Register").ToUpper());
+
+		//LanguageManager.Instance.ChangeLanguage ("ja");
+
+		if (LanguageManager.Instance.GetDeviceCultureIfSupported ().languageCode.Equals ("ar")) {
+
+
+			titleP1.text = ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("Register1"));
+			titleP2.text = ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("Register2"));
+			nameInputField.GetComponent<InputField>().text = ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("YourName"));
+			teamInputField.GetComponent<InputField>().text = ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("YourTeam"));
+			registerButtonText.text = ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("Register"));
+
+		} else {
+
+			titleP1.text = LanguageManager.Instance.GetTextValue ("Register1");
+			titleP2.text = LanguageManager.Instance.GetTextValue ("Register2");
+			nameInputField.GetComponent<InputField>().text = LanguageManager.Instance.GetTextValue ("YourName");
+			teamInputField.GetComponent<InputField>().text = LanguageManager.Instance.GetTextValue ("YourTeam");
+			registerButtonText.text = LanguageManager.Instance.GetTextValue ("Register");
+
+		}
 
 		registerBtn.GetComponent<Button>().onClick.AddListener(() => { RegisterBtn(); });    //play
 		playBtn.GetComponent<Button>().onClick.AddListener(() => { PlayBtn(); });    //play

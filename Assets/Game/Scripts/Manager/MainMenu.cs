@@ -35,10 +35,17 @@ public class MainMenu : MonoBehaviour
         canTouchSlideButton = true;
         hidden = true;
 
-		//LanguageManager.Instance.ChangeLanguage ("ar");
 		LanguageManager.Instance.ChangeLanguage (LanguageManager.Instance.GetDeviceCultureIfSupported ());
-		gameNameP1.text = ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("GameName1").ToUpper());
-		gameNameP2.text = ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("GameName2").ToUpper());
+		//LanguageManager.Instance.ChangeLanguage ("ja");
+
+		if (LanguageManager.Instance.GetDeviceCultureIfSupported ().languageCode.Equals ("ar")) {
+			gameNameP1.text = ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("GameName1"));
+			gameNameP2.text = ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("GameName2"));
+		} else {
+			gameNameP1.text = LanguageManager.Instance.GetTextValue ("GameName1");
+			gameNameP2.text = LanguageManager.Instance.GetTextValue ("GameName2");
+		}
+
 
         sound = GetComponent<AudioSource>();
         playBtn.GetComponent<Button>().onClick.AddListener(() => { PlayBtn(); });    //play
