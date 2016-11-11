@@ -17,14 +17,7 @@ public class PlayerScoreList : MonoBehaviour {
 	void Start () {
 
 		highscoresManager = GetComponent<Highscores>();
-       /*
-		Highscores.instance.AddNewHighscore("محمد العرباني", 52);
-		Highscores.instance.AddNewHighscore("محمد صث", 23);
-		Highscores.instance.AddNewHighscore("محمد شس", 120);
-
-     Debug.Log(highscoresManager);
-     */
-
+      
         StartCoroutine("RefreshHighscores");
 		while(playerScoreEntryList.transform.childCount > 0) {
 			Transform c = playerScoreEntryList.transform.GetChild(0);
@@ -32,7 +25,13 @@ public class PlayerScoreList : MonoBehaviour {
 			Destroy (c.gameObject);
 		}
 
-		LanguageManager.Instance.ChangeLanguage (LanguageManager.Instance.GetDeviceCultureIfSupported ());
+		if (LanguageManager.Instance.GetDeviceCultureIfSupported () == null) {
+			LanguageManager.Instance.ChangeLanguage ("en");
+		} else {
+			LanguageManager.Instance.ChangeLanguage (LanguageManager.Instance.GetDeviceCultureIfSupported ());
+		}
+
+
 		for (int i = 0; i < 1; i++) {
 
             //Debug.Log("loading");
@@ -71,7 +70,7 @@ public class PlayerScoreList : MonoBehaviour {
 			Destroy (c.gameObject);
 		}
 
-		for (int i = 0; i < highscoreList.Length && i < 5; i++) {
+		for (int i = 0; i < highscoreList.Length && i < 6; i++) {
 
 			GameObject go = (GameObject)Instantiate(playerScoreEntryPrefab);
 			go.transform.SetParent(playerScoreEntryList.transform,false);

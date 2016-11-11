@@ -117,39 +117,39 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
 	<data name="BestPlayers" xml:space="preserve">
-		<value>Best Players</value>
+		<value>Лучшие игроки</value>
 	</data>
 	<data name="GameName1" xml:space="preserve">
-		<value>Color</value>
+		<value />
 	</data>
 	<data name="GameName2" xml:space="preserve">
-		<value>Footballs</value>
+		<value>Цвет футбол</value>
 	</data>
 	<data name="GameOver" xml:space="preserve">
-		<value>Game Over</value>
+		<value>Игра закончена</value>
 	</data>
 	<data name="HighScore" xml:space="preserve">
-		<value>Best</value>
+		<value>Лучше всех</value>
 	</data>
 	<data name="Loading" xml:space="preserve">
-		<value>Loading</value>
+		<value>Загрузка</value>
 	</data>
 	<data name="Register" xml:space="preserve">
-		<value>Register</value>
+		<value>Регистрация</value>
 	</data>
 	<data name="Register1" xml:space="preserve">
-		<value>Regitser Now</value>
+		<value>Зарегистрируйтесь прямо сейчас</value>
 	</data>
 	<data name="Register2" xml:space="preserve">
-		<value>Compete With Everyone</value>
+		<value>Конкурировать со всеми</value>
 	</data>
 	<data name="Score" xml:space="preserve">
-		<value>Score</value>
+		<value>Оценка</value>
 	</data>
 	<data name="YourName" xml:space="preserve">
-		<value>Your Name</value>
+		<value>Ваше имя</value>
 	</data>
 	<data name="YourTeam" xml:space="preserve">
-		<value>Your Favorite Team</value>
+		<value>Ваша любимая команда</value>
 	</data>
 </root>

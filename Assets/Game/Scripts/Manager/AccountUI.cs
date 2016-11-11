@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using ArabicSupport;
 using SmartLocalization;
+using System.Text.RegularExpressions;
 
 
 public class AccountUI : MonoBehaviour {
@@ -17,7 +18,12 @@ public class AccountUI : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		LanguageManager.Instance.ChangeLanguage (LanguageManager.Instance.GetDeviceCultureIfSupported ());
+		if (LanguageManager.Instance.GetDeviceCultureIfSupported () == null) {
+			LanguageManager.Instance.ChangeLanguage ("en");
+		} else {
+			LanguageManager.Instance.ChangeLanguage (LanguageManager.Instance.GetDeviceCultureIfSupported ());
+		}
+
 
 		//LanguageManager.Instance.ChangeLanguage ("ja");
 
@@ -92,14 +98,26 @@ public class AccountUI : MonoBehaviour {
 
 	public void FixNameInputFieldText()
 	{
-        string fixedArabic = ArabicFixer.Fix(nameInputField.GetComponent<InputField>().text, true, true);
-        nameInputField.GetComponent<InputField>().text = fixedArabic;
+		string text = nameInputField.GetComponent<InputField> ().text;
+	
+		var isArabic = Regex.IsMatch(text, @"\p{IsArabic}");
+		if (isArabic) {
+			text = ArabicFixer.Fix(text, true, true);
+		}
+
+        nameInputField.GetComponent<InputField>().text = text;
     }
 
 
     public void FixTeamsInputFieldText()
     {
-        string fixedArabic = ArabicFixer.Fix(teamInputField.GetComponent<InputField>().text, true, true);
-        teamInputField.GetComponent<InputField>().text = fixedArabic;
+		string text = teamInputField.GetComponent<InputField> ().text;
+
+		var isArabic = Regex.IsMatch(text, @"\p{IsArabic}");
+		if (isArabic) {
+			text = ArabicFixer.Fix(text, true, true);
+		}
+        
+		teamInputField.GetComponent<InputField>().text = text;
     }
 }

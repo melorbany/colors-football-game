@@ -35,7 +35,13 @@ public class MainMenu : MonoBehaviour
         canTouchSlideButton = true;
         hidden = true;
 
-		LanguageManager.Instance.ChangeLanguage (LanguageManager.Instance.GetDeviceCultureIfSupported ());
+
+		if (LanguageManager.Instance.GetDeviceCultureIfSupported () == null) {
+			LanguageManager.Instance.ChangeLanguage ("en");
+		} else {
+			LanguageManager.Instance.ChangeLanguage (LanguageManager.Instance.GetDeviceCultureIfSupported ());
+		}
+
 		//LanguageManager.Instance.ChangeLanguage ("ja");
 
 		if (LanguageManager.Instance.GetDeviceCultureIfSupported ().languageCode.Equals ("ar")) {

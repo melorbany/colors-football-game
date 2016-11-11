@@ -17,7 +17,12 @@ public class HighScoreUI : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		
-		LanguageManager.Instance.ChangeLanguage (LanguageManager.Instance.GetDeviceCultureIfSupported ());
+		if (LanguageManager.Instance.GetDeviceCultureIfSupported () == null) {
+			LanguageManager.Instance.ChangeLanguage ("en");
+		} else {
+			LanguageManager.Instance.ChangeLanguage (LanguageManager.Instance.GetDeviceCultureIfSupported ());
+		}
+
 
 		//LanguageManager.Instance.ChangeLanguage ("ja");
 

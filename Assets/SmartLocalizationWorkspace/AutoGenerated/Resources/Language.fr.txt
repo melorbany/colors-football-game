@@ -117,39 +117,39 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
 	<data name="BestPlayers" xml:space="preserve">
-		<value />
+		<value>Meilleurs joueurs</value>
 	</data>
 	<data name="GameName1" xml:space="preserve">
-		<value />
+		<value>Couleur</value>
 	</data>
 	<data name="GameName2" xml:space="preserve">
-		<value />
+		<value>Football</value>
 	</data>
 	<data name="GameOver" xml:space="preserve">
-		<value />
+		<value>Fin du jeu</value>
 	</data>
 	<data name="HighScore" xml:space="preserve">
-		<value />
+		<value>Le meilleur</value>
 	</data>
 	<data name="Loading" xml:space="preserve">
-		<value />
+		<value>Chargement</value>
 	</data>
 	<data name="Register" xml:space="preserve">
-		<value />
+		<value>S’inscrire</value>
 	</data>
 	<data name="Register1" xml:space="preserve">
-		<value />
+		<value>Inscrivez-vous dès maintenant</value>
 	</data>
 	<data name="Register2" xml:space="preserve">
-		<value />
+		<value>Rivaliser avec tout le monde</value>
 	</data>
 	<data name="Score" xml:space="preserve">
-		<value />
+		<value>Score</value>
 	</data>
 	<data name="YourName" xml:space="preserve">
-		<value />
+		<value>Votre nom</value>
 	</data>
 	<data name="YourTeam" xml:space="preserve">
-		<value />
+		<value>Votre équipe Favorite</value>
 	</data>
 </root>
