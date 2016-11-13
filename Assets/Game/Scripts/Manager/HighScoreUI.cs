@@ -17,17 +17,19 @@ public class HighScoreUI : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		
-		if (LanguageManager.Instance.GetDeviceCultureIfSupported () == null) {
-			LanguageManager.Instance.ChangeLanguage ("en");
-		} else {
+		string language = LanguageManager.Instance.GetSystemLanguageEnglishName ();
+		if (LanguageManager.Instance.IsLanguageSupportedEnglishName (language)) {
 			LanguageManager.Instance.ChangeLanguage (LanguageManager.Instance.GetDeviceCultureIfSupported ());
+		} else {
+			LanguageManager.Instance.ChangeLanguage ("en");
 		}
 
+		LanguageManager.Instance.ChangeLanguage ("ar");
 
-		//LanguageManager.Instance.ChangeLanguage ("ja");
 
-		if (LanguageManager.Instance.GetDeviceCultureIfSupported ().languageCode.Equals ("ar")) {
-			titleText.text = ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("BestPlayers"));
+		if (true || LanguageManager.Instance.GetDeviceCultureIfSupported () != null && 
+			LanguageManager.Instance.GetDeviceCultureIfSupported ().languageCode.Equals ("ar")) {
+	    	titleText.text = ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("BestPlayers"));
 		} else {
 			titleText.text = LanguageManager.Instance.GetTextValue ("BestPlayers");
 		}

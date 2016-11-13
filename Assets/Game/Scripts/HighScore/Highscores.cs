@@ -25,12 +25,12 @@ public class Highscores : MonoBehaviour {
 		instance.StartCoroutine(instance.UploadNewHighscore(username,score));
 	}
 
-	IEnumerator UploadNewHighscore(string username, int score) {
+	IEnumerator UploadNewHighscore(string username, int score ) {
 
         //Debug.Log("upload high score");
 
 
-        WWW www = new WWW(webURL + privateCode + "/add/" + WWW.EscapeURL(username) + "/" + score);
+		WWW www = new WWW(webURL + privateCode + "/add/" + WWW.EscapeURL(username) + "/" + score );
         //Debug.Log(www);
 
         yield return www;
@@ -39,7 +39,7 @@ public class Highscores : MonoBehaviour {
       // Debug.Log (webURL + privateCode + "/add/" + WWW.EscapeURL(username) + "/" + score);
 
         if (string.IsNullOrEmpty(www.error)) {
-			print ("Upload Successful");
+			//print ("Upload Successful");
 			//DownloadHighscores();
 		}
 		else {

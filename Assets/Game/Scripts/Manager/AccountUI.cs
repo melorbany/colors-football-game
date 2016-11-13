@@ -18,30 +18,32 @@ public class AccountUI : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		if (LanguageManager.Instance.GetDeviceCultureIfSupported () == null) {
-			LanguageManager.Instance.ChangeLanguage ("en");
-		} else {
+		string language = LanguageManager.Instance.GetSystemLanguageEnglishName ();
+		if (LanguageManager.Instance.IsLanguageSupportedEnglishName (language)) {
 			LanguageManager.Instance.ChangeLanguage (LanguageManager.Instance.GetDeviceCultureIfSupported ());
+		} else {
+			LanguageManager.Instance.ChangeLanguage ("en");
 		}
 
 
-		//LanguageManager.Instance.ChangeLanguage ("ja");
+		LanguageManager.Instance.ChangeLanguage ("ar");
 
-		if (LanguageManager.Instance.GetDeviceCultureIfSupported ().languageCode.Equals ("ar")) {
 
+		if (true || LanguageManager.Instance.GetDeviceCultureIfSupported () != null && 
+			LanguageManager.Instance.GetDeviceCultureIfSupported ().languageCode.Equals ("ar")) {
 
 			titleP1.text = ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("Register1"));
 			titleP2.text = ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("Register2"));
-			nameInputField.GetComponent<InputField>().text = ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("YourName"));
-			teamInputField.GetComponent<InputField>().text = ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("YourTeam"));
+			nameInputField.GetComponent<InputField>().placeholder.GetComponent<Text>().text = ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("YourName"));
+			teamInputField.GetComponent<InputField>().placeholder.GetComponent<Text>().text = ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("YourTeam"));
 			registerButtonText.text = ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("Register"));
 
 		} else {
 
 			titleP1.text = LanguageManager.Instance.GetTextValue ("Register1");
 			titleP2.text = LanguageManager.Instance.GetTextValue ("Register2");
-			nameInputField.GetComponent<InputField>().text = LanguageManager.Instance.GetTextValue ("YourName");
-			teamInputField.GetComponent<InputField>().text = LanguageManager.Instance.GetTextValue ("YourTeam");
+			nameInputField.GetComponent<InputField>().placeholder.GetComponent<Text>().text = LanguageManager.Instance.GetTextValue ("YourName");
+			teamInputField.GetComponent<InputField>().placeholder.GetComponent<Text>().text = LanguageManager.Instance.GetTextValue ("YourTeam");
 			registerButtonText.text = LanguageManager.Instance.GetTextValue ("Register");
 
 		}
@@ -71,7 +73,7 @@ public class AccountUI : MonoBehaviour {
 		if (name.Length > 1) {
 
             userName = Highscores.instance.FormatUserName (name, team);
-            Highscores.instance.AddNewHighscore (userName , GameManager.instance.hiScore);
+			Highscores.instance.AddNewHighscore (userName , GameManager.instance.hiScore);
             GameManager.instance.isUserRegistered = true;
             GameManager.instance.regUserName = userName;
             GameManager.instance.Save();

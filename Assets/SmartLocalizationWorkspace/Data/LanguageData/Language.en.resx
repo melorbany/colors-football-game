@@ -117,13 +117,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
 	<data name="BestPlayers" xml:space="preserve">
-		<value>Best Players</value>
+		<value>Top Players</value>
 	</data>
 	<data name="GameName1" xml:space="preserve">
 		<value>Color</value>
 	</data>
 	<data name="GameName2" xml:space="preserve">
-		<value>Footballs</value>
+		<value>Football</value>
 	</data>
 	<data name="GameOver" xml:space="preserve">
 		<value>Game Over</value>

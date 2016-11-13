@@ -35,16 +35,20 @@ public class MainMenu : MonoBehaviour
         canTouchSlideButton = true;
         hidden = true;
 
-
-		if (LanguageManager.Instance.GetDeviceCultureIfSupported () == null) {
-			LanguageManager.Instance.ChangeLanguage ("en");
-		} else {
+	
+		string language = LanguageManager.Instance.GetSystemLanguageEnglishName ();
+		if (LanguageManager.Instance.IsLanguageSupportedEnglishName (language)) {
 			LanguageManager.Instance.ChangeLanguage (LanguageManager.Instance.GetDeviceCultureIfSupported ());
+		} else {
+			LanguageManager.Instance.ChangeLanguage ("en");
 		}
 
-		//LanguageManager.Instance.ChangeLanguage ("ja");
+		LanguageManager.Instance.ChangeLanguage ("ar");
 
-		if (LanguageManager.Instance.GetDeviceCultureIfSupported ().languageCode.Equals ("ar")) {
+
+		if (true || LanguageManager.Instance.GetDeviceCultureIfSupported () != null && 
+			LanguageManager.Instance.GetDeviceCultureIfSupported ().languageCode.Equals ("ar")) {
+
 			gameNameP1.text = ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("GameName1"));
 			gameNameP2.text = ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("GameName2"));
 		} else {

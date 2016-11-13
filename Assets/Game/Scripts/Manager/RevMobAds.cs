@@ -8,41 +8,57 @@ public class RevMobAds : MonoBehaviour {
 	private int j = 0;
 	private RevMob revmob;
 	private static RevMobFullscreen fullscreen;
+	private static RevMobFullscreen video;
+
+
 
 	private static readonly Dictionary<String, String> REVMOB_APP_IDS = new Dictionary<String, String>() {
 		{ "Android", "582633de03ba46545c6c3edb"},
-		{ "IOS", "582633de03ba46545c6c3edb" },
-		{ "AMAZON", "5826dd104b6a58ae2a01dfe4" },
-
+		{ "IOS", "5826dce203ba46545c6c3f31" }
 	};
 	void Awake() {
 		revmob = RevMob.Start(REVMOB_APP_IDS, this.gameObject.name);
 	}
+		
 
 	// Use this for initialization
 	void Start () {
 		j = 0;
-
-		Debug.Log (revmob);
 		if (revmob != null) {
 			fullscreen = revmob.CreateFullscreen();
-		}
+			video = revmob.CreateRewardedVideo ();
+		}	
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
-		if (GameManager.instance.isGameOver == true
+		if (j == 0 &&  GameManager.instance.isGameOver == true
 			&& GameManager.instance.canShowAds)
 		{
-			if (j == 0 && GameManager.instance.currentScore >= 3)
+			j++;
+
+			if (GameManager.instance.currentScore >= 100 || (GameManager.instance.currentScore >= 70 &&
+				GameManager.instance.currentScore >= GameManager.instance.hiScore)) {
+
+				if (video != null) {
+					video.ShowRewardedVideo ();
+				}
+				
+			}else if (GameManager.instance.currentScore >= 3)
 			{
 				if (fullscreen != null) {
 					fullscreen.Show();
 				}
-				j++;
 			}
+
+
+
+
 		}
 
 	}
+
+
+
 }

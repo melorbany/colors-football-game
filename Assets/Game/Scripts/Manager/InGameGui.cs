@@ -22,17 +22,18 @@ public class InGameGui : MonoBehaviour {
 	void Start ()
     {
 		
-		if (LanguageManager.Instance.GetDeviceCultureIfSupported () == null) {
-			LanguageManager.Instance.ChangeLanguage ("en");
-		} else {
+		string language = LanguageManager.Instance.GetSystemLanguageEnglishName ();
+		if (LanguageManager.Instance.IsLanguageSupportedEnglishName (language)) {
 			LanguageManager.Instance.ChangeLanguage (LanguageManager.Instance.GetDeviceCultureIfSupported ());
+		} else {
+			LanguageManager.Instance.ChangeLanguage ("en");
 		}
 
-		//LanguageManager.Instance.ChangeLanguage ("ja");
+		LanguageManager.Instance.ChangeLanguage ("ar");
 
-		//Debug.Log (LanguageManager.Instance.GetDeviceCultureIfSupported ().languageCode.Equals("ar"));
 
-		if (LanguageManager.Instance.GetDeviceCultureIfSupported ().languageCode.Equals ("ar")) {
+		if (LanguageManager.Instance.GetDeviceCultureIfSupported () != null && 
+			LanguageManager.Instance.GetDeviceCultureIfSupported ().languageCode.Equals ("ar")) {
 			gameOverText.text = ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("GameOver"));
 			scoreText.text = ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("Score"));
 			highScoreText.text = ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("HighScore"));
@@ -62,11 +63,6 @@ public class InGameGui : MonoBehaviour {
         {
             GameManager.instance.hiScore = GameManager.instance.currentScore;
             GameManager.instance.Save();
-
-			if(!GameManager.instance.isUserRegistered  && GameManager.instance.hiScore > 30)
-			{
-				//ShowRegisterMessage ();
-			}
         }
 
         if (GameManager.instance.isGameOver)
@@ -81,7 +77,6 @@ public class InGameGui : MonoBehaviour {
             if (GameManager.instance.currentScore >= 10 && i == 0)
             {
 				//ShowRegisterMessage ();
-
                 int point = GameManager.instance.currentScore / 10;
                 pointText.text = "+" + point;
                 GameManager.instance.points = point;
@@ -96,7 +91,7 @@ public class InGameGui : MonoBehaviour {
 				Highscores.instance.AddNewHighscore (GameManager.instance.regUserName, GameManager.instance.hiScore);
 				isScoreUpdatedOnServe = true;
 			} else if (!GameManager.instance.isUserRegistered 
-				&& GameManager.instance.currentScore >= 20) {
+				&& GameManager.instance.currentScore >= 30) {
 				SceneManager.LoadScene(accountScene);
 			}
         }

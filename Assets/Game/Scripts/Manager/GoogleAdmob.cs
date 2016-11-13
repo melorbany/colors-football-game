@@ -78,15 +78,15 @@ public class GoogleAdmob : MonoBehaviour
         // value.
         this.deltaTime += (Time.deltaTime - this.deltaTime) * 0.1f;
 
-        if (GameManager.instance.isGameOver == true
-            && GameManager.instance.canShowAds)
-        {
-            if (j == 0 && GameManager.instance.currentScore >= 3)
-            {
-                ShowInterstitial();
-                j++;
-            }
-        }
+//        if (GameManager.instance.isGameOver == true
+//            && GameManager.instance.canShowAds)
+//        {
+//            if (j == 0 && GameManager.instance.currentScore >= 3)
+//            {
+//                ShowInterstitial();
+//                j++;
+//            }
+//        }
 
     }
 
