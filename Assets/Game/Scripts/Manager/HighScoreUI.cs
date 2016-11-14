@@ -24,7 +24,7 @@ public class HighScoreUI : MonoBehaviour {
 			LanguageManager.Instance.ChangeLanguage ("en");
 		}
 
-		LanguageManager.Instance.ChangeLanguage ("ar");
+		//LanguageManager.Instance.ChangeLanguage ("ar");
 
 
 		if (true || LanguageManager.Instance.GetDeviceCultureIfSupported () != null && 

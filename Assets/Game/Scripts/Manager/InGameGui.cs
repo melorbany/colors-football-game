@@ -29,7 +29,7 @@ public class InGameGui : MonoBehaviour {
 			LanguageManager.Instance.ChangeLanguage ("en");
 		}
 
-		LanguageManager.Instance.ChangeLanguage ("ar");
+		//LanguageManager.Instance.ChangeLanguage ("ar");
 
 
 		if (LanguageManager.Instance.GetDeviceCultureIfSupported () != null && 

@@ -1013,10 +1013,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9880e1f84a162bb4b824ee3476484a5f, type: 3}
   - {fileID: 8300000, guid: f9f4ebba56e4ff8448ff7fc0b3af2f0a, type: 3}
   - {fileID: 8300000, guid: a51704e9b29595b47abd76b521d722bb, type: 3}
-  timeReduce: 0.04
+  timeReduce: 0.05
   timeDecreaseMileStone: 10
   timeForRandomElement: 0.8
-  minTime: 0.7
+  minTime: 0.6
   time: 1.5
 --- !u!82 &143565986
 AudioSource:

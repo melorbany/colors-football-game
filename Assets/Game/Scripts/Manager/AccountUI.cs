@@ -26,7 +26,7 @@ public class AccountUI : MonoBehaviour {
 		}
 
 
-		LanguageManager.Instance.ChangeLanguage ("ar");
+		//LanguageManager.Instance.ChangeLanguage ("ar");
 
 
 		if (true || LanguageManager.Instance.GetDeviceCultureIfSupported () != null && 

@@ -50,13 +50,15 @@ public class SpawnerController : MonoBehaviour {
 	void Update ()
     {
 		if (GameManager.instance.currentScore < 20) {
-			timeForRandomElement = 1;
-		} else if (GameManager.instance.currentScore < 30) {
 			timeForRandomElement = .9f;
 		} else if (GameManager.instance.currentScore < 40) {
 			timeForRandomElement = .85f;
-		}else{
+		}else if (GameManager.instance.currentScore < 200) {
 			timeForRandomElement = .8f;
+		}else if (GameManager.instance.currentScore < 300) {
+			timeForRandomElement = .75f;
+		}else{
+			timeForRandomElement = .7f;
 		}
 
 		//Debug.Log (timeForRandomElement);
@@ -67,14 +69,13 @@ public class SpawnerController : MonoBehaviour {
     {
         float timeVal = time;
 
-		if (GameManager.instance.currentScore <= 5)
+		if (GameManager.instance.hiScore <= 5)
         {
             timeVal = time;
         }
-		else if (GameManager.instance.currentScore > 5 /*&& GameManager.instance.currentScore <= 15*/)
+		else 
         {
             int i = Random.Range(0, 4);
-
             if (i >= 0 && i < 3)
             {
                 timeVal = time;

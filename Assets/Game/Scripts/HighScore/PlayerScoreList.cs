@@ -40,7 +40,7 @@ public class PlayerScoreList : MonoBehaviour {
 			go.transform.SetParent(playerScoreEntryList.transform,false);
 
 
-			LanguageManager.Instance.ChangeLanguage ("ar");
+			//LanguageManager.Instance.ChangeLanguage ("ar");
 
 
 			if (LanguageManager.Instance.GetDeviceCultureIfSupported () != null && 

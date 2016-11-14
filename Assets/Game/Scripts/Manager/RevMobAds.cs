@@ -38,11 +38,13 @@ public class RevMobAds : MonoBehaviour {
 		{
 			j++;
 
-			if (GameManager.instance.currentScore >= 100 || (GameManager.instance.currentScore >= 70 &&
+			if (GameManager.instance.currentScore > 100 || (GameManager.instance.currentScore > 70 &&
 				GameManager.instance.currentScore >= GameManager.instance.hiScore)) {
 
 				if (video != null) {
 					video.ShowRewardedVideo ();
+				}else if (fullscreen != null) {
+					fullscreen.Show();
 				}
 				
 			}else if (GameManager.instance.currentScore >= 3)
@@ -51,9 +53,7 @@ public class RevMobAds : MonoBehaviour {
 					fullscreen.Show();
 				}
 			}
-
-
-
+				
 
 		}
 
