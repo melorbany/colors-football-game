@@ -3,6 +3,12 @@ using System.Collections;
 using System;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using UnityEngine.UI;
+using SmartLocalization;
+using ArabicSupport;
+using System.Collections.Generic;
+
+
 /// <summary>
 /// This script helps in saving and loading data in device
 /// </summary>
@@ -25,8 +31,7 @@ public class GameManager : MonoBehaviour {
     public bool[] textureUnlocked;
 	public bool isUserRegistered;
 	public String regUserName;
-    //ref to the background music
-    //private AudioSource audio;
+
 
     void Awake()
     {
@@ -47,7 +52,18 @@ public class GameManager : MonoBehaviour {
 
     void Start()
     {
-        
+
+		//LanguageManager.Instance.GetDeviceCultureIfSupported ();
+		//LanguageManager.Instance.ChangeLanguage (LanguageManager.Instance.GetDeviceCultureIfSupported ());
+//
+//		Debug.Log(dictionary["English"]);
+//		string language = LanguageManager.Instance.GetSystemLanguageEnglishName ();
+//		language = "Arabic";
+//		if (LanguageManager.Instance.IsLanguageSupportedEnglishName (language)) {
+//			LanguageManager.Instance.ChangeLanguage (dictionary[language]);
+//		}
+//		Debug.Log(LanguageManager.Instance.IsLanguageSupportedEnglishName ("Arabic"));
+
     }
 
     void MakeInstance()

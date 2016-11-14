@@ -1,0 +1,41 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.3"
+
+    defaultConfig {
+        applicationId "com.tatbiqat.colorfootball"
+        minSdkVersion 9
+        targetSdkVersion 24
+            multiDexEnabled true
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+
+    dexOptions
+            {
+                incremental false
+                javaMaxHeapSize "3072M"
+                preDexLibraries = false
+            }//en
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+}
+
+dependencies {
+
+    compile 'com.google.android.gms:play-services:+'
+    compile files('libs/revmob-android-wrapper.jar')
+    compile files('libs/unity-classes.jar')
+}

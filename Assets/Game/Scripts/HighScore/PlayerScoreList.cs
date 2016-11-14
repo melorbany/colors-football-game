@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using ArabicSupport;
+using SmartLocalization;
 
 public class PlayerScoreList : MonoBehaviour {
 
@@ -16,19 +17,19 @@ public class PlayerScoreList : MonoBehaviour {
 	void Start () {
 
 		highscoresManager = GetComponent<Highscores>();
-       /*
-		Highscores.instance.AddNewHighscore("محمد العرباني", 52);
-		Highscores.instance.AddNewHighscore("محمد صث", 23);
-		Highscores.instance.AddNewHighscore("محمد شس", 120);
-
-     Debug.Log(highscoresManager);
-     */
-
+      
         StartCoroutine("RefreshHighscores");
 		while(playerScoreEntryList.transform.childCount > 0) {
 			Transform c = playerScoreEntryList.transform.GetChild(0);
 			c.SetParent(null);  // Become Batman
 			Destroy (c.gameObject);
+		}
+
+		string language = LanguageManager.Instance.GetSystemLanguageEnglishName ();
+		if (LanguageManager.Instance.IsLanguageSupportedEnglishName (language)) {
+			LanguageManager.Instance.ChangeLanguage (LanguageManager.Instance.GetDeviceCultureIfSupported ());
+		} else {
+			LanguageManager.Instance.ChangeLanguage ("en");
 		}
 
 		for (int i = 0; i < 1; i++) {
@@ -37,7 +38,21 @@ public class PlayerScoreList : MonoBehaviour {
 
             GameObject go = (GameObject)Instantiate(playerScoreEntryPrefab);
 			go.transform.SetParent(playerScoreEntryList.transform,false);
-			go.transform.Find ("Name").GetComponent<Text> ().text = ArabicFixer.Fix ("جاري التحميل", true, true);
+
+
+			//LanguageManager.Instance.ChangeLanguage ("ar");
+
+
+			if (LanguageManager.Instance.GetDeviceCultureIfSupported () != null && 
+				LanguageManager.Instance.GetDeviceCultureIfSupported ().languageCode.Equals ("ar")) {
+
+				go.transform.Find ("Name").GetComponent<Text> ().text =  ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("Loading"));
+			} else {
+				go.transform.Find ("Name").GetComponent<Text> ().text =  LanguageManager.Instance.GetTextValue ("Loading");
+			}
+
+
+
 			go.transform.Find ("Team").GetComponent<Text> ().text ="";
 			go.transform.Find ("Score").GetComponent<Text> ().text = "";
 		}
@@ -58,7 +73,7 @@ public class PlayerScoreList : MonoBehaviour {
 			Destroy (c.gameObject);
 		}
 
-		for (int i = 0; i < highscoreList.Length && i < 5; i++) {
+		for (int i = 0; i < highscoreList.Length && i < 6; i++) {
 
 			GameObject go = (GameObject)Instantiate(playerScoreEntryPrefab);
 			go.transform.SetParent(playerScoreEntryList.transform,false);

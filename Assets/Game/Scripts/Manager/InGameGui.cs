@@ -3,12 +3,15 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using ArabicSupport;
+using SmartLocalization;
 
 public class InGameGui : MonoBehaviour {
 
     private AudioSource sound;
     public GameObject gameOn , gameOver;
     public Text score, best, ingameScore, pointText;
+	public Text gameOverText,scoreText,highScoreText;
+
     public Color[] medalCols;
     public Image medal;
     public Button homeBtn, leaderBtn, retryBtn, shareBtn;
@@ -18,14 +21,37 @@ public class InGameGui : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        sound = GetComponent<AudioSource>();
+		
+		string language = LanguageManager.Instance.GetSystemLanguageEnglishName ();
+		if (LanguageManager.Instance.IsLanguageSupportedEnglishName (language)) {
+			LanguageManager.Instance.ChangeLanguage (LanguageManager.Instance.GetDeviceCultureIfSupported ());
+		} else {
+			LanguageManager.Instance.ChangeLanguage ("en");
+		}
+
+		//LanguageManager.Instance.ChangeLanguage ("ar");
+
+
+		if (LanguageManager.Instance.GetDeviceCultureIfSupported () != null && 
+			LanguageManager.Instance.GetDeviceCultureIfSupported ().languageCode.Equals ("ar")) {
+			gameOverText.text = ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("GameOver"));
+			scoreText.text = ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("Score"));
+			highScoreText.text = ArabicFixer.Fix (LanguageManager.Instance.GetTextValue ("HighScore"));
+		} else {
+			gameOverText.text = LanguageManager.Instance.GetTextValue ("GameOver");
+			scoreText.text = LanguageManager.Instance.GetTextValue ("Score");
+			highScoreText.text = LanguageManager.Instance.GetTextValue ("HighScore");
+		}
+	
+
+		sound = GetComponent<AudioSource>();
         GameManager.instance.currentScore = 0;
         ingameScore.text = "" + GameManager.instance.currentScore;
         homeBtn.GetComponent<Button>().onClick.AddListener(() => { HomeBtn(); });    //home
         leaderBtn.GetComponent<Button>().onClick.AddListener(() => { LeaderboardBtn(); });    //leaderboard
         retryBtn.GetComponent<Button>().onClick.AddListener(() => { RetryBtn(); });    //retry
         shareBtn.GetComponent<Button>().onClick.AddListener(() => { ShareBtn(); });    //snapshot
-        
+
     }
 
     // Update is called once per frame
@@ -37,11 +63,6 @@ public class InGameGui : MonoBehaviour {
         {
             GameManager.instance.hiScore = GameManager.instance.currentScore;
             GameManager.instance.Save();
-
-			if(!GameManager.instance.isUserRegistered  && GameManager.instance.hiScore > 30)
-			{
-				//ShowRegisterMessage ();
-			}
         }
 
         if (GameManager.instance.isGameOver)
@@ -56,7 +77,6 @@ public class InGameGui : MonoBehaviour {
             if (GameManager.instance.currentScore >= 10 && i == 0)
             {
 				//ShowRegisterMessage ();
-
                 int point = GameManager.instance.currentScore / 10;
                 pointText.text = "+" + point;
                 GameManager.instance.points = point;
@@ -71,7 +91,7 @@ public class InGameGui : MonoBehaviour {
 				Highscores.instance.AddNewHighscore (GameManager.instance.regUserName, GameManager.instance.hiScore);
 				isScoreUpdatedOnServe = true;
 			} else if (!GameManager.instance.isUserRegistered 
-				&& GameManager.instance.currentScore >= 40) {
+				&& GameManager.instance.currentScore >= 30) {
 				SceneManager.LoadScene(accountScene);
 			}
         }

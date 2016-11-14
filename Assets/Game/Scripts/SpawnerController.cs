@@ -49,6 +49,19 @@ public class SpawnerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+		if (GameManager.instance.currentScore < 20) {
+			timeForRandomElement = .9f;
+		} else if (GameManager.instance.currentScore < 40) {
+			timeForRandomElement = .85f;
+		}else if (GameManager.instance.currentScore < 200) {
+			timeForRandomElement = .8f;
+		}else if (GameManager.instance.currentScore < 300) {
+			timeForRandomElement = .75f;
+		}else{
+			timeForRandomElement = .7f;
+		}
+
+		//Debug.Log (timeForRandomElement);
         IncreaseDiff();
     }
 
@@ -56,14 +69,13 @@ public class SpawnerController : MonoBehaviour {
     {
         float timeVal = time;
 
-		if (GameManager.instance.currentScore <= 10)
+		if (GameManager.instance.hiScore <= 5)
         {
             timeVal = time;
         }
-		else if (GameManager.instance.currentScore > 10 /*&& GameManager.instance.currentScore <= 15*/)
+		else 
         {
             int i = Random.Range(0, 4);
-
             if (i >= 0 && i < 3)
             {
                 timeVal = time;
@@ -157,7 +169,10 @@ public class SpawnerController : MonoBehaviour {
         {
             timeMileStoneCount += timeDecreaseMileStone;
             timeDecreaseMileStone += 5f; //well this set the new mile stone which the score
-            time -= timeReduce;
+            
+			int level = (GameManager.instance.currentScore / 100) + 1;
+			timeReduce = timeReduce / level;
+			time -= timeReduce ;
 
             if (time < minTime)
             {
